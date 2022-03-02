@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
+        // Get only last one record.
         Schema::create('about_mes', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('name')->nullable();
+            $table->string('sns')->nullable();  // facebook, github
+            $table->string('link')->nullable(); // facebook.com/sjc-bui, github.com/sjc-bui
+            $table->text('intro');
             $table->timestamps();
         });
     }

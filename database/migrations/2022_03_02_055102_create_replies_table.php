@@ -14,7 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('replies', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('comment_id');
+            $table->text('content');
             $table->timestamps();
         });
     }
