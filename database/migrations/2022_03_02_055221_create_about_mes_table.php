@@ -16,6 +16,7 @@ return new class extends Migration
         // Get only last one record.
         Schema::create('about_mes', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id');
             $table->string('name')->nullable();
             $table->string('sns')->nullable();  // facebook, github
             $table->string('link')->nullable(); // facebook.com/sjc-bui, github.com/sjc-bui
