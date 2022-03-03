@@ -1,0 +1,8 @@
+.un-read {
+    background-color: #d4edda;
+}
+
+.un-read:hover {
+    background-color: #f0f5f1;
+    cursor: pointer;
+}

@@ -60,13 +60,13 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>name</th>
-                                    <th>sns</th>
-                                    <th>link</th>
-                                    <th>intro</th>
-                                    <th>created at</th>
-                                    <th>##</th>
+                                    <th scope="col">#</th>
+                                    <th scope="col">name</th>
+                                    <th scope="col">sns</th>
+                                    <th scope="col">link</th>
+                                    <th scope="col">intro</th>
+                                    <th scope="col">created at</th>
+                                    <th scope="col">##</th>
                                 </tr>
                             </thead>
                             <tbody>

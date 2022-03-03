@@ -21,6 +21,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet" />
 </head>
 
 <body>
@@ -52,11 +53,11 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">categories</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">contacts</a>
+                            <li class="nav-item {{ request()->is('admin/contacts*') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('admin.contacts') }}">contacts</a>
                             </li>
                             <li class="nav-item {{ request()->is('admin/abouts*') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('admin.abouts') }}">about</a>
+                                <a class="nav-link" href="{{ route('admin.abouts') }}">abouts</a>
                             </li>
                             <li class="nav-item">
                                 <span class="nav-link"> | </span>

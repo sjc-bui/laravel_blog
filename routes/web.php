@@ -42,4 +42,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], fu
     Route::get('/abouts', [AboutMeController::class, 'abouts'])->name('abouts');
     Route::post('/abouts', [AboutMeController::class, 'store'])->name('abouts.store');
     Route::delete('/abouts/{id}', [AboutMeController::class, 'destroy'])->name('abouts.destroy');
+
+    // contacts
+    Route::get('/contacts', [ContactMeController::class, 'contacts'])->name('contacts');
+    Route::get('/contacts/{id}', [ContactMeController::class, 'show'])->name('contacts.show');
 });
