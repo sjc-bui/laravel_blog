@@ -34,6 +34,11 @@ Route::get('/aboutme', [AboutMeController::class, 'index'])->name('aboutme');
 
 // ----------------------------- Admin page -----------------------------
 Auth::routes();
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function() {
+    // posts
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    // abouts
+    Route::get('/abouts', [AboutMeController::class, 'abouts'])->name('abouts');
+    Route::post('/abouts', [AboutMeController::class, 'store'])->name('abouts.store');
 });

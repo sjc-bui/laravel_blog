@@ -40,8 +40,8 @@
                     <!-- Left Side Of Navbar -->
                     @auth
                         <ul class="navbar-nav me-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">posts</a>
+                            <li class="nav-item {{ request()->is('admin/home*') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('admin.home') }}">posts</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">comments</a>
@@ -55,8 +55,8 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">contacts</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">about</a>
+                            <li class="nav-item {{ request()->is('admin/abouts*') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('admin.abouts') }}">about</a>
                             </li>
                             <li class="nav-item">
                                 <span class="nav-link"> | </span>
@@ -70,13 +70,15 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link {{ request()->is('login') ? 'active' : ''}}" href="{{ route('login') }}">{{ __('login') }}</a>
+                                    <a class="nav-link {{ request()->is('login') ? 'active' : '' }}"
+                                        href="{{ route('login') }}">{{ __('login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link {{ request()->is('register') ? 'active' : ''}}" href="{{ route('register') }}">{{ __('register') }}</a>
+                                    <a class="nav-link {{ request()->is('register') ? 'active' : '' }}"
+                                        href="{{ route('register') }}">{{ __('register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -91,7 +93,8 @@
                                     {{ __('logout') }}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="d-none">
                                     @csrf
                                 </form>
                             </li>
