@@ -19,4 +19,8 @@ class AboutMeRepository implements AboutMeRepositoryInterface
     {
         return AboutMe::create($about);
     }
+
+    public function deleteAbout($aboutId) {
+        AboutMe::destroy($aboutId);
+    }
 }

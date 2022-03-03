@@ -17,9 +17,7 @@
         </div>
 
         <p class="social-buttons text-center">
-            @for ($i = 0; $i < count($sns); $i++)
-                <a href="https://{{ $links[$i] }}" class="btn btn-default btn-md">Visit my {{ $sns[$i] }}</a>
-            @endfor
+            <a href="https://{{ $about->link }}" target="_blank" class="btn btn-default btn-md">Visit my {{ $about->sns }}</a>
         </p>
     @else
         <h5>Updating..!</h5>

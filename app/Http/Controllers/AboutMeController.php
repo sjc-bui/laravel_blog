@@ -22,13 +22,9 @@ class AboutMeController extends Controller
     public function index()
     {
         $about = $this->aboutmeRepository->getLastAboutInfo();
-        $sns   = explode(',', $about->sns);
-        $links = explode(',', $about->link);
 
         return view('aboutme.index', [
-            'about' => $about,
-            'sns' => $sns,
-            'links' => $links
+            'about' => $about
         ]);
     }
 
@@ -66,5 +62,15 @@ class AboutMeController extends Controller
         $this->aboutmeRepository->createAbout($about);
 
         return back()->with('success', 'Infor was added.');
+    }
+
+    /**
+     * Delete about info
+     * 
+     */
+    public function destroy(Request $request) {
+        $aboutId = $request->route('id');
+        $this->aboutmeRepository->deleteAbout($aboutId);
+        return back();
     }
 }

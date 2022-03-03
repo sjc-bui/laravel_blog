@@ -41,8 +41,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="link">SNS Link</label>
-                                <input type="text" name="link" id="link" placeholder="Enter sns link"
-                                    class="form-control" value="{{ old('link') }}">
+                                <input type="text" name="link" id="link" placeholder="Enter sns link" class="form-control"
+                                    value="{{ old('link') }}">
                             </div>
                             <div class="form-group">
                                 <label for="intro">Intro</label>
@@ -66,6 +66,7 @@
                                     <th>link</th>
                                     <th>intro</th>
                                     <th>created at</th>
+                                    <th>##</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -77,6 +78,13 @@
                                         <td>{{ $about->link }}</td>
                                         <td>{{ $about->intro }}</td>
                                         <td>{{ $about->created_at }}</td>
+                                        <td>
+                                            <form action="{{ route('admin.abouts.destroy', $about->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
