@@ -22,7 +22,7 @@ Route::get('/', function () {
     return redirect(route('posts'));
 });
 
-// Home
+// Posts
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
 
 // Contact me
@@ -32,5 +32,8 @@ Route::post('/contact', [ContactMeController::class, 'store'])->name('store.cont
 // About me
 Route::get('/aboutme', [AboutMeController::class, 'index'])->name('aboutme');
 
+// ----------------------------- Admin page -----------------------------
 Auth::routes();
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+});

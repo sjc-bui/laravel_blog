@@ -7,12 +7,14 @@
 
     <div class="well">
         <p class="lead">
-            Do you have any question? Please use the below contact form and send a message. I'll reply you as quick
-            as possible.
+            Do you have any question?<br>
+            Please use the below contact form and send a message.<br>
+            I'll reply you as quick as possible.
         </p>
     </div>
 
     <div class="contact-form">
+        {{-- Error messages --}}
         @if ($errors->any())
             <div class="alert alert-danger">
                 <strong>Opps!</strong>
@@ -24,6 +26,8 @@
                 </ul>
             </div>
         @endif
+
+        {{-- Success message --}}
         @if (session('success'))
             <div class="alert alert-success alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert">x</button>

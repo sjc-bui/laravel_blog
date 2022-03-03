@@ -25,7 +25,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #e3f2fd;">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('posts') }}">
                     {{ config('app.name') }}
@@ -38,7 +38,31 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto"></ul>
+                    @auth
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">posts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">comments</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">tags</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">categories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">contacts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">about</a>
+                            </li>
+                            <li class="nav-item">
+                                <span class="nav-link"> | </span>
+                            </li>
+                        </ul>
+                    @endauth
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -46,32 +70,28 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link {{ request()->is('login') ? 'active' : ''}}" href="{{ route('login') }}">{{ __('login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link {{ request()->is('register') ? 'active' : ''}}" href="{{ route('register') }}">{{ __('register') }}</a>
                                 </li>
                             @endif
                         @else
                             {{-- Username --}}
                             <li class="nav-item">
-                                <a id="navbarDropdown" class="nav-link" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+                                <span class="nav-link" style="color: black;">{{ Auth::user()->name }}</span>
                             </li>
                             {{-- Logout button --}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    {{ __('logout') }}
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    class="d-none">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
                             </li>
@@ -85,6 +105,10 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- Jquery and Bootstrap Script files -->
+    <script src="{{ asset('css/lib/jquery-2.0.3.min.js') }}"></script>
+    <script src="{{ asset('css/lib/bootstrap-3.0.3/js/bootstrap.min.js') }}"></script>
 </body>
 
 </html>
