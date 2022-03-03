@@ -19,7 +19,7 @@ use App\Http\Controllers\AboutMeController;
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return redirect(route('posts'));
 });
 
 // Home
