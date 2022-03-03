@@ -26,6 +26,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Contact me
 Route::get('/contact', [ContactMeController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactMeController::class, 'store'])->name('store.contact');
 
 // About me
 Route::get('/aboutme', [AboutMeController::class, 'index'])->name('aboutme');
