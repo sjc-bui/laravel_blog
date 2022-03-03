@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main_app')
 
 @section('title', 'About')
 
@@ -10,14 +10,10 @@
             <img class="img-thumbnail img-responsive photo" src="http://placehold.it/300x350" />
         </div>
         <div class="col-md-9 col-sm-9">
+            <h3>sjc-bui</h3>
             <p>
                 Hi my real name is John Rumour. I've been learning astrology for last 20 years. Yeah, that's true.
                 Sometimes I used to think this is all bullshit. But still I love doing more research on this.
-            </p>
-
-            <p>
-                I don't know how to fill this paragraph more, so, Lorem ipsum dolor sit amet, consectetuer
-                adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
             </p>
         </div>
     </div>
