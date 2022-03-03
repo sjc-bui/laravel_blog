@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="{{ route('home') }}" class="navbar-brand">Blog</a>
+            <a href="{{ route('posts') }}" class="navbar-brand">Blog</a>
         </div>
 
         <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
@@ -22,7 +22,7 @@
 
             {{-- Navbar link --}}
             <ul class="nav navbar-nav">
-                <li class="{{ request()->is('home') ? 'active' : ''}}"><a href="{{ route('home') }}">Home</a></li>
+                <li class="{{ request()->is('posts') ? 'active' : ''}}"><a href="{{ route('posts') }}">Home</a></li>
                 <li class="{{ request()->is('contact') ? 'active' : ''}}"><a href="{{ route('contact') }}">Contact</a></li>
                 <li class="{{ request()->is('aboutme') ? 'active' : ''}}"><a href="{{ route('aboutme') }}">About</a></li>
             </ul>

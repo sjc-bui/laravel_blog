@@ -8,26 +8,23 @@ use App\Interfaces\CategoryRepositoryInterface;
 
 class HomeController extends Controller
 {
-    private PostRepositoryInterface $postRepository;
-    private CategoryRepositoryInterface $categoryRepository;
-
-    public function __construct(
-        PostRepositoryInterface $postRepository,
-        CategoryRepositoryInterface $categoryRepository
-    )
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        $this->postRepository = $postRepository;
-        $this->categoryRepository = $categoryRepository;
+        $this->middleware('auth');
     }
 
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function index()
     {
-        $posts = $this->postRepository->getAllPosts();
-        $categories = $this->categoryRepository->getAllCategories();
-
-        return view('posts.posts', [
-            'posts' => $posts,
-            'categories' => $categories
-        ]);
+        return view('home');
     }
 }
