@@ -25,7 +25,11 @@ footer {
 }
 
 .card-title {
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.3rem !important;
+}
+
+.card-body {
+    padding-bottom: 0 !important;
 }
 
 .card-footer {
@@ -34,4 +38,8 @@ footer {
 
 .post-card {
     margin: 12px 0;
+}
+
+.category-link {
+    color: #6c757d !important;
 }
