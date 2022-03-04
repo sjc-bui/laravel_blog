@@ -46,4 +46,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], fu
     // contacts
     Route::get('/contacts', [ContactMeController::class, 'contacts'])->name('contacts');
     Route::get('/contacts/{id}', [ContactMeController::class, 'show'])->name('contacts.show');
+    Route::post('/contacts/read', [ContactMeController::class, 'markAllAsRead'])->name('contacts.read');
+    Route::delete('/contacts/{id}', [ContactMeController::class, 'destroy'])->name('contacts.destroy');
 });

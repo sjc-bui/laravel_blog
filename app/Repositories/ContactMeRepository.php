@@ -17,11 +17,23 @@ class ContactMeRepository implements ContactMeRepositoryInterface
         return ContactMe::orderBy('is_readed', 'asc')->orderBy('created_at', 'desc')->get();
     }
 
-    public function getContactById($id) {
+    public function getContactById($id)
+    {
         return ContactMe::findOrFail($id);
     }
 
-    public function markAsRead($id) {
+    public function markAsRead($id)
+    {
         ContactMe::where('id', $id)->update(['is_readed' => 1]);
+    }
+
+    public function markAllAsRead()
+    {
+        ContactMe::where('is_readed', 0)->update(['is_readed' => 1]);
+    }
+
+    public function deleteContact($contactId)
+    {
+        ContactMe::destroy($contactId);
     }
 }

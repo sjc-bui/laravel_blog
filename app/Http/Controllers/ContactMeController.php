@@ -11,14 +11,13 @@ class ContactMeController extends Controller
 
     public function __construct(
         ContactMeRepositoryInterface $contactRepository
-    )
-    {
+    ) {
         $this->contactRepository = $contactRepository;
     }
 
     /**
      * Show contact form
-     * 
+     *
      */
     public function index()
     {
@@ -27,7 +26,7 @@ class ContactMeController extends Controller
 
     /**
      * Store contact
-     * 
+     *
      */
     public function store(Request $request)
     {
@@ -52,9 +51,10 @@ class ContactMeController extends Controller
 
     /**
      * Show contacts in admin page.
-     * 
+     *
      */
-    public function contacts() {
+    public function contacts()
+    {
         $contacts = $this->contactRepository->getContacts();
         $count = $contacts->where('is_readed', '=', false)->count();
         return view('admin.contact.index', [
@@ -65,12 +65,34 @@ class ContactMeController extends Controller
 
     /**
      * Contact detail
-     * 
+     *
      */
-    public function show(Request $request) {
+    public function show(Request $request)
+    {
         $contactId = $request->route('id');
         $this->contactRepository->markAsRead($contactId); // ??
         $contact = $this->contactRepository->getContactById($contactId); // ??
         return view('admin.contact.show', compact('contact'));
+    }
+
+    /**
+     * Update unread message to read.
+     * 
+     */
+    public function markAllAsRead()
+    {
+        $this->contactRepository->markAllAsRead();
+        return back();
+    }
+
+    /**
+     * Delete contact by id.
+     * 
+     */
+    public function destroy(Request $request)
+    {
+        $contactId = $request->route('id');
+        $this->contactRepository->deleteContact($contactId);
+        return back();
     }
 }
