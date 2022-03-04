@@ -11,10 +11,13 @@
     <title>{{ config('app.name') }} | @yield('title')</title>
 
     <!-- Bootstrap CSS file -->
-    <link href="{{ asset('css/lib/bootstrap-3.0.3/css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/lib/bootstrap-3.0.3/css/bootstrap-theme.min.css') }}" rel="stylesheet" />
+    {{-- <link href="{{ asset('css/lib/bootstrap-3.0.3/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/lib/bootstrap-3.0.3/css/bootstrap-theme.min.css') }}" rel="stylesheet" /> --}}
 
     <link href="{{ asset('css/blog.css') }}" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     @yield('summernotecss')
 </head>
@@ -25,7 +28,7 @@
     @include('shared.header')
 
     <!-- Body -->
-    <div class="container">
+    <div class="container" style="padding-top: 2.5rem;">
         @yield('content')
     </div>
 

@@ -1,19 +1,15 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h4>Tags</h4>
+<div class="card">
+    <div class="card-header">
+        <h5>Tags</h5>
     </div>
-    <div class="panel-body">
-        <ul class="list-inline">
-            <li><a href="#">Aries</a></li>
-            <li><a href="#">Fire</a></li>
-            <li><a href="#">Mars</a></li>
-            <li><a href="#">Taurus</a></li>
-            <li><a href="#">Earth</a></li>
-            <li><a href="#">Moon</a></li>
-            <li><a href="#">Gemini</a></li>
-            <li><a href="#">Air</a></li>
-            <li><a href="#">Mercury</a></li>
-            <li><a href="#">Cancer</a></li>
-        </ul>
-    </div>
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">1. Aries</a></li>
+        <li class="list-inline-item"><a href="#">2. Taurus</a></li>
+        <li class="list-inline-item"><a href="#">3. Gemini</a></li>
+        <li class="list-inline-item"><a href="#">4. Cancer</a></li>
+        <li class="list-inline-item"><a href="#">5. Leo</a></li>
+        <li class="list-inline-item"><a href="#">3. Gemini</a></li>
+        <li class="list-inline-item"><a href="#">4. Cancer</a></li>
+        <li class="list-inline-item"><a href="#">5. Leo</a></li>
+    </ul>
 </div>

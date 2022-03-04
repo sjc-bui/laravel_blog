@@ -1,8 +1,8 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h4>Recent Comments</h4>
+<div class="card">
+    <div class="card-header">
+        <h5>Recent Comments</h5>
     </div>
-    <ul class="list-group">
+    <ul class="list-group list-group-flush">
         <li class="list-group-item"><a href="#">I don't believe in astrology but still your writing
                 style is really great! - <em>john</em></a></li>
         <li class="list-group-item"><a href="#">Wow.. what you said is really true! I'm an aries though
