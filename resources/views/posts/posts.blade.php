@@ -44,7 +44,7 @@
 
     @endforeach
     <div class="row mb-2">
-        <div class="col-md-6">
+        <div class="col-md-6 post-card">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">日本語タイトル</h4>
@@ -59,8 +59,67 @@
                 </div>
             </div>
         </div>
-        
-        <div class="col-md-6">
+        <div class="col-md-6 post-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">英語タイトル</h4>
+                    <small class="text-muted">
+                        20 minutes
+                    </small>
+                    <p>Some content go here</p>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                    <div class="views">2022-03-04</div>
+                    <div class="views">1231 12</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 post-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">日本語タイトル</h4>
+                    <small class="text-muted">
+                        20前
+                    </small>
+                    <p>内容が表示されます。</p>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                    <div class="views">2022-03-04</div>
+                    <div class="views">1231 12</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 post-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">英語タイトル</h4>
+                    <small class="text-muted">
+                        20 minutes
+                    </small>
+                    <p>Some content go here</p>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                    <div class="views">2022-03-04</div>
+                    <div class="views">1231 12</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 post-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">日本語タイトル</h4>
+                    <small class="text-muted">
+                        20前
+                    </small>
+                    <p>内容が表示されます。</p>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                    <div class="views">2022-03-04</div>
+                    <div class="views">1231 12</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 post-card">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">英語タイトル</h4>

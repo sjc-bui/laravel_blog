@@ -31,3 +31,7 @@ footer {
 .card-footer {
     font-size: 0.8rem;
 }
+
+.post-card {
+    margin: 12px 0;
+}
