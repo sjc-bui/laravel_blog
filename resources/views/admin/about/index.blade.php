@@ -77,12 +77,12 @@
                                         <td>{{ $about->sns }}</td>
                                         <td>{{ $about->link }}</td>
                                         <td>{{ $about->intro }}</td>
-                                        <td>{{ $about->created_at }}</td>
+                                        <td>{{ $about->created_at->format('Y/m/d H:i') }}</td>
                                         <td>
                                             <form action="{{ route('admin.abouts.destroy', $about->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure, you want to delete?')">Delete</button>
                                             </form>
                                         </td>
                                     </tr>
