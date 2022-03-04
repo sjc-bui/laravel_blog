@@ -34,9 +34,7 @@
                                     <tr>
                                         <td>
                                             <div class="contact-content">
-                                                <p>
-                                                    {{ $contact->content }}
-                                                </p>
+                                                <p>{!! $contact->content !!}</p>
                                             </div>
                                         </td>
                                     </tr>

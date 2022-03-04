@@ -47,7 +47,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="intro">Intro</label>
-                                <textarea name="intro" id="intro" rows="5" class="form-control"
+                                <textarea name="intro" id="summernote" rows="10" class="form-control"
                                     placeholder="Enter message...">{{ old('intro') }}</textarea>
                             </div>
                             <div class="form-group text-right">
@@ -77,7 +77,7 @@
                                         <td>{{ $about->name }}</td>
                                         <td>{{ $about->sns }}</td>
                                         <td>{{ $about->link }}</td>
-                                        <td>{{ $about->intro }}</td>
+                                        <td>{!! $about->intro !!}</td>
                                         <td>{{ $about->created_at->format('Y/m/d H:i') }}</td>
                                         <td>
                                             <form action="{{ route('admin.abouts.destroy', $about->id) }}" method="post">

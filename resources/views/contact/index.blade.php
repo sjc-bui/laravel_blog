@@ -61,7 +61,7 @@
             <div class="form-group">
                 <label for="message" class="col-md-2">Message</label>
                 <div class="col-md-10">
-                    <textarea class="form-control" id="message" placeholder="Message..." name="message">{{ old('message') }}</textarea>
+                    <textarea class="form-control" id="summernote" placeholder="Message..." name="message">{{ old('message') }}</textarea>
                 </div>
             </div>
 
