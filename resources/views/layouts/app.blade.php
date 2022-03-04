@@ -50,8 +50,8 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">tags</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">categories</a>
+                            <li class="nav-item {{ request()->is('admin/categories*') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('admin.categories') }}">categories</a>
                             </li>
                             <li class="nav-item {{ request()->is('admin/contacts*') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('admin.contacts') }}">contacts</a>

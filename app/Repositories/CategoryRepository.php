@@ -11,4 +11,14 @@ class CategoryRepository implements CategoryRepositoryInterface
     {
         return Category::all();
     }
+
+    public function deleteCategory($categoryId)
+    {
+        Category::destroy($categoryId);
+    }
+
+    public function createCategory(array $category)
+    {
+        return Category::create($category);
+    }
 }

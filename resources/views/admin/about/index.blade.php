@@ -10,14 +10,14 @@
                     <div class="card-body">
                         @if (session('success'))
                             <div class="alert alert-success alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert">x</button>
+                                <button type="button" class="close" data-dismiss="alert">&#215;</button>
                                 {{ session('success') }}
                             </div>
                         @endif
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <strong>Opps!</strong>
-                                <button type="button" class="close" data-dismiss="alert">x</button>
+                                <button type="button" class="close" data-dismiss="alert">&#215;</button>
                                 <ul>
                                     @foreach ($errors->all() as $error)
                                         <li>{{ $error }}</li>
@@ -26,6 +26,7 @@
                             </div>
                         @endif
 
+                        {{-- Add about info form --}}
                         <form action="{{ route('admin.abouts.store') }}" method="post">
                             @csrf
 

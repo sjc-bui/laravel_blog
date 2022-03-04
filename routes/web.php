@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ContactMeController;
 use App\Http\Controllers\AboutMeController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,4 +49,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], fu
     Route::get('/contacts/{id}', [ContactMeController::class, 'show'])->name('contacts.show');
     Route::post('/contacts/read', [ContactMeController::class, 'markAllAsRead'])->name('contacts.read');
     Route::delete('/contacts/{id}', [ContactMeController::class, 'destroy'])->name('contacts.destroy');
+
+    // categories
+    Route::get('/categories', [CategoryController::class, 'categories'])->name('categories');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+    Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 });

@@ -18,7 +18,7 @@
         @if ($errors->any())
             <div class="alert alert-danger">
                 <strong>Opps!</strong>
-                <button type="button" class="close" data-dismiss="alert">x</button>
+                <button type="button" class="close" data-dismiss="alert">&#215;</button>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -30,7 +30,7 @@
         {{-- Success message --}}
         @if (session('success'))
             <div class="alert alert-success alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert">x</button>
+                <button type="button" class="close" data-dismiss="alert">&#215;</button>
                 {{ session('success') }}
             </div>
         @endif
