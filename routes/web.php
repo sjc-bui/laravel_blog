@@ -22,7 +22,7 @@ Route::get('/', function () {
     return redirect(route('posts'));
 });
 
-// Home
+// Posts
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
 
 // Contact me
@@ -32,5 +32,20 @@ Route::post('/contact', [ContactMeController::class, 'store'])->name('store.cont
 // About me
 Route::get('/aboutme', [AboutMeController::class, 'index'])->name('aboutme');
 
+// ----------------------------- Admin page -----------------------------
 Auth::routes();
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function() {
+    // posts
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    // abouts
+    Route::get('/abouts', [AboutMeController::class, 'abouts'])->name('abouts');
+    Route::post('/abouts', [AboutMeController::class, 'store'])->name('abouts.store');
+    Route::delete('/abouts/{id}', [AboutMeController::class, 'destroy'])->name('abouts.destroy');
+
+    // contacts
+    Route::get('/contacts', [ContactMeController::class, 'contacts'])->name('contacts');
+    Route::get('/contacts/{id}', [ContactMeController::class, 'show'])->name('contacts.show');
+    Route::post('/contacts/read', [ContactMeController::class, 'markAllAsRead'])->name('contacts.read');
+    Route::delete('/contacts/{id}', [ContactMeController::class, 'destroy'])->name('contacts.destroy');
+});

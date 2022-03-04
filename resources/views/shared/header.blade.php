@@ -25,6 +25,9 @@
                 <li class="{{ request()->is('posts') ? 'active' : ''}}"><a href="{{ route('posts') }}">Home</a></li>
                 <li class="{{ request()->is('contact') ? 'active' : ''}}"><a href="{{ route('contact') }}">Contact</a></li>
                 <li class="{{ request()->is('aboutme') ? 'active' : ''}}"><a href="{{ route('aboutme') }}">About</a></li>
+                @auth
+                    <li class=""><a href="{{ route('admin.home') }}">Dashboard</a></li>
+                @endauth
             </ul>
         </nav>
     </div>
