@@ -9,15 +9,19 @@
 
             <div class="row">
                 <div class="col-sm-6 col-md-6">
-                    <span class="glyphicon glyphicon-folder-open"></span> &nbsp;<a href="#">{{ $post->category->title }}</a>
+                    @if (isset($post->category))
+                        <span class="glyphicon glyphicon-folder-open"></span> &nbsp;<a
+                            href="#">{{ $post->category->title }}</a>
+                    @endif
                     &nbsp;&nbsp;<span class="glyphicon glyphicon-bookmark"></span> <a href="#">Aries</a>, <a
                         href="#">Fire</a>,
                     <a href="#">Mars</a>
                 </div>
                 <div class="col-sm-6 col-md-6">
-                    <span class="glyphicon glyphicon-pencil"></span> <a href="singlepost.html#comments">{{ count($post->comments) }}
+                    <span class="glyphicon glyphicon-pencil"></span> <a
+                        href="singlepost.html#comments">{{ count($post->comments) }}
                         Comments</a>
-                    &nbsp;&nbsp;<span class="glyphicon glyphicon-time"></span> {{ $post->created_at->format('M d, Y H:i:s') }}
+                    &nbsp;&nbsp;<span class="glyphicon glyphicon-time"></span> {{ $post->created_at->format('Y/m/d H:i') }}
                 </div>
             </div>
 
