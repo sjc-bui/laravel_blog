@@ -74,8 +74,8 @@
             </div>
 
             <div class="form-group">
-                <div class="col-md-12 text-right">
-                    <button type="submit" class="btn btn-lg btn-primary">Submit your message!</button>
+                <div class="col-md-10 text-right">
+                    <button type="submit" class="btn btn-md btn-primary">Submit your message!</button>
                 </div>
             </div>
         </form>
