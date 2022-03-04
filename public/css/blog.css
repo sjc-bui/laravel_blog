@@ -1,14 +1,13 @@
-
 body {
-	margin-top: 75px;
+    margin-top: 75px;
 }
-
 
 footer {
-	margin: 10px 0;
+    margin: 10px 0;
 }
 
-#comments, #comments li {
+#comments,
+#comments li {
     margin: 0;
     padding: 0;
 }
@@ -16,11 +15,19 @@ footer {
 #comments li {
     list-style: none;
 }
-        
+
 .photo {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .social-buttons button {
-	margin-top: 5px;
+    margin-top: 5px;
+}
+
+.card-title {
+    margin-bottom: 0.3rem;
+}
+
+.card-footer {
+    font-size: 0.8rem;
 }
