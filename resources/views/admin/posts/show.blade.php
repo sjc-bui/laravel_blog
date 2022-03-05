@@ -14,6 +14,9 @@
                             <a href="{{ route('admin.home') }}">Edit</a>
                         </div>
                         <hr>
+                        @if ($post->published == 0)
+                            <small style="color: red;">Draft</small>
+                        @endif
                         <div class="sub-title">{{ $post->title }}</div>
                         <table>
                             <tbody>
@@ -39,6 +42,15 @@
                                             <div class="contact-content">
                                                 <p>{!! $post->content !!}</p>
                                             </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <form action="{{ route('admin.posts.destroy', $post->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure, you want to delete?')">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 </tbody>

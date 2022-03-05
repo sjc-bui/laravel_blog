@@ -82,4 +82,15 @@ class HomeController extends Controller
         $newPost = $this->postRepository->createPost($post);
         return redirect($newPost->path());
     }
+
+    /**
+     * Delete post.
+     * 
+     */
+    public function destroy(Request $request)
+    {
+        $postId = $request->route('id');
+        $this->postRepository->deletePost($postId);
+        return redirect(route('admin.home'));
+    }
 }

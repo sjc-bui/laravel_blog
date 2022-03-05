@@ -8,6 +8,11 @@ use App\Models\Post;
 class PostRepository implements PostRepositoryInterface
 {
 
+    public function getPublishPosts()
+    {
+        return Post::where('published', 1)->get();
+    }
+
     public function getAllPosts()
     {
         return Post::all();
@@ -21,5 +26,10 @@ class PostRepository implements PostRepositoryInterface
     public function createPost(array $post)
     {
         return Post::create($post);
+    }
+
+    public function deletePost($postId)
+    {
+        Post::destroy($postId);
     }
 }

@@ -41,6 +41,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], fu
     Route::get('/home/posts/{id}', [HomeController::class, 'show'])->name('posts.show');
     Route::get('/home/posts', [HomeController::class, 'create'])->name('posts.create');
     Route::post('/home/posts', [HomeController::class, 'store'])->name('posts.store');
+    Route::delete('/home/posts/{id}', [HomeController::class, 'destroy'])->name('posts.destroy');
 
     // abouts
     Route::get('/abouts', [AboutMeController::class, 'abouts'])->name('abouts');
