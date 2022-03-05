@@ -38,6 +38,9 @@ Auth::routes();
 Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function() {
     // posts
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/home/posts/{id}', [HomeController::class, 'show'])->name('posts.show');
+    Route::get('/home/posts', [HomeController::class, 'create'])->name('posts.create');
+    Route::post('/home/posts', [HomeController::class, 'store'])->name('posts.store');
 
     // abouts
     Route::get('/abouts', [AboutMeController::class, 'abouts'])->name('abouts');
