@@ -11,7 +11,9 @@
                         <div>
                             <a href="{{ route('admin.home') }}">Back</a>
                             &#32;&#124;&#32;
-                            <a href="{{ route('admin.home') }}">Edit</a>
+                            <a href="{{ route('admin.posts.create') }}">Create new</a>
+                            &#32;&#124;&#32;
+                            <a href="{{ route('admin.posts.edit', $post->id) }}">Edit</a>
                         </div>
                         <hr>
                         @if ($post->published == 0)

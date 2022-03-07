@@ -93,4 +93,28 @@ class HomeController extends Controller
         $this->postRepository->deletePost($postId);
         return redirect(route('admin.home'));
     }
+
+    /**
+     * Show update view.
+     * 
+     */
+    public function edit(Request $request)
+    {
+        $postId = $request->route('id');
+        $post = $this->postRepository->getPostById($postId);
+        $categories = $this->categoryRepository->getAllCategories();
+        return view('admin.posts.edit', [
+            'post' => $post,
+            'categories' => $categories
+        ]);
+    }
+
+    /**
+     * Update post.
+     * 
+     */
+    public function update(Request $request)
+    {
+        return back();
+    }
 }
