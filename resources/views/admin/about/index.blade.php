@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('summernotecss')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -10,14 +14,14 @@
                     <div class="card-body">
                         @if (session('success'))
                             <div class="alert alert-success alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert">x</button>
+                                <button type="button" class="close" data-dismiss="alert">&#215;</button>
                                 {{ session('success') }}
                             </div>
                         @endif
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <strong>Opps!</strong>
-                                <button type="button" class="close" data-dismiss="alert">x</button>
+                                <button type="button" class="close" data-dismiss="alert">&#215;</button>
                                 <ul>
                                     @foreach ($errors->all() as $error)
                                         <li>{{ $error }}</li>
@@ -26,6 +30,7 @@
                             </div>
                         @endif
 
+                        {{-- Add about info form --}}
                         <form action="{{ route('admin.abouts.store') }}" method="post">
                             @csrf
 
@@ -46,7 +51,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="intro">Intro</label>
-                                <textarea name="intro" id="intro" rows="5" class="form-control"
+                                <textarea name="intro" id="summernote" rows="10" class="form-control"
                                     placeholder="Enter message...">{{ old('intro') }}</textarea>
                             </div>
                             <div class="form-group text-right">
@@ -76,13 +81,14 @@
                                         <td>{{ $about->name }}</td>
                                         <td>{{ $about->sns }}</td>
                                         <td>{{ $about->link }}</td>
-                                        <td>{{ $about->intro }}</td>
+                                        <td>{!! $about->intro !!}</td>
                                         <td>{{ $about->created_at->format('Y/m/d H:i') }}</td>
                                         <td>
                                             <form action="{{ route('admin.abouts.destroy', $about->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure, you want to delete?')">Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('Are you sure, you want to delete?')">Delete</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -94,4 +100,22 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('summernotejs')
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                tabsize: 2,
+                height: 120,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']]
+                ]
+            });
+        });
+    </script>
 @endsection

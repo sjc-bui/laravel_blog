@@ -1,8 +1,8 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h4>Categories</h4>
+<div class="card">
+    <div class="card-header">
+        <h5>Categories</h5>
     </div>
-    <ul class="list-group">
+    <ul class="list-group list-group-flush">
         @foreach ($categories as $category)
             <li class="list-group-item"><a href="{{ $category->slug }}">{{ $category->title }}</a></li>
         @endforeach

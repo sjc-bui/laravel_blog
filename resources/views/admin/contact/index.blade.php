@@ -50,7 +50,7 @@
                                             <td><a
                                                     href="{{ route('admin.contacts.show', $contact->id) }}">{{ $contact->subject }}</a>
                                             </td>
-                                            <td>{{ $contact->content }}</td>
+                                            <td>{!! $contact->content !!}</td>
                                             <td>{{ $contact->created_at->format('Y/m/d H:i') }}</td>
                                             <td>
                                                 <form action="{{ route('admin.contacts.destroy', $contact->id) }}" method="post">

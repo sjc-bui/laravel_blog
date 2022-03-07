@@ -10,18 +10,16 @@
 
     <title>{{ config('app.name') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet" />
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link href="{{ asset('css/admin.css') }}" rel="stylesheet" />
+
+    @yield('summernotecss')
 </head>
 
 <body>
@@ -50,8 +48,8 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">tags</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">categories</a>
+                            <li class="nav-item {{ request()->is('admin/categories*') ? 'active' : '' }}">
+                                <a class="nav-link" href="{{ route('admin.categories') }}">categories</a>
                             </li>
                             <li class="nav-item {{ request()->is('admin/contacts*') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('admin.contacts') }}">contacts</a>
@@ -112,7 +110,15 @@
 
     <!-- Jquery and Bootstrap Script files -->
     <script src="{{ asset('css/lib/jquery-2.0.3.min.js') }}"></script>
-    <script src="{{ asset('css/lib/bootstrap-3.0.3/js/bootstrap.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+
+    {{-- Summer Note --}}
+    @yield('summernotejs')
 </body>
 
 </html>

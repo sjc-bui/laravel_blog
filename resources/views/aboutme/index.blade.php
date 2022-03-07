@@ -12,7 +12,7 @@
             </div>
             <div class="col-md-9 col-sm-9">
                 <h3>{{ $about->name }}</h3>
-                <p>{{ $about->intro }}</p>
+                <p>{!! $about->intro !!}</p>
             </div>
         </div>
 

@@ -2,6 +2,10 @@
 
 @section('title', 'Contact')
 
+@section('summernotecss')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+@endsection
+
 @section('content')
     <h1>Contact Me</h1>
 
@@ -18,7 +22,7 @@
         @if ($errors->any())
             <div class="alert alert-danger">
                 <strong>Opps!</strong>
-                <button type="button" class="close" data-dismiss="alert">x</button>
+                <button type="button" class="close" data-dismiss="alert">&#215;</button>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -30,7 +34,7 @@
         {{-- Success message --}}
         @if (session('success'))
             <div class="alert alert-success alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert">x</button>
+                <button type="button" class="close" data-dismiss="alert">&#215;</button>
                 {{ session('success') }}
             </div>
         @endif
@@ -40,36 +44,58 @@
             <div class="form-group">
                 <label for="name" class="col-md-2">Name</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Name..." value="{{ old('name') }}">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name..."
+                        value="{{ old('name') }}">
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="email" class="col-md-2">Email</label>
                 <div class="col-md-10">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email..." value="{{ old('email') }}">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email..."
+                        value="{{ old('email') }}">
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="subject" class="col-md-2">Subject</label>
                 <div class="col-md-10">
-                    <input type="subject" class="form-control" id="subject" name="subject" placeholder="Subject..." value="{{ old('subject') }}">
+                    <input type="subject" class="form-control" id="subject" name="subject" placeholder="Subject..."
+                        value="{{ old('subject') }}">
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="message" class="col-md-2">Message</label>
                 <div class="col-md-10">
-                    <textarea class="form-control" id="message" placeholder="Message..." name="message">{{ old('message') }}</textarea>
+                    <textarea class="form-control" id="summernote" placeholder="Message..."
+                        name="message">{{ old('message') }}</textarea>
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-md-12 text-right">
-                    <button type="submit" class="btn btn-lg btn-primary">Submit your message!</button>
+                <div class="col-md-10 text-right">
+                    <button type="submit" class="btn btn-md btn-primary">Submit your message!</button>
                 </div>
             </div>
         </form>
     </div>
+@endsection
+
+@section('summernotejs')
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                tabsize: 2,
+                height: 120,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']]
+                ]
+            });
+        });
+    </script>
 @endsection

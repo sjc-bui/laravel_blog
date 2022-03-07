@@ -25,12 +25,15 @@
 
             <!-- Latest Posts -->
             @include('shared.latestPosts')
+            <br>
 
             <!-- Categories -->
             @include('shared.categories')
+            <br>
 
             <!-- Tags -->
             @include('shared.tags')
+            <br>
 
             <!-- Recent Comments -->
             @include('shared.recentComment')

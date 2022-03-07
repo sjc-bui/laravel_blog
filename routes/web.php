@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ContactMeController;
 use App\Http\Controllers\AboutMeController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,12 @@ Auth::routes();
 Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function() {
     // posts
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/home/posts/{id}', [HomeController::class, 'show'])->name('posts.show');
+    Route::get('/home/posts/{id}/edit', [HomeController::class, 'edit'])->name('posts.edit');
+    Route::get('/home/posts', [HomeController::class, 'create'])->name('posts.create');
+    Route::post('/home/posts', [HomeController::class, 'store'])->name('posts.store');
+    Route::delete('/home/posts/{id}', [HomeController::class, 'destroy'])->name('posts.destroy');
+    Route::put('/home/posts/{id}', [HomeController::class, 'update'])->name('posts.update');
 
     // abouts
     Route::get('/abouts', [AboutMeController::class, 'abouts'])->name('abouts');
@@ -48,4 +55,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], fu
     Route::get('/contacts/{id}', [ContactMeController::class, 'show'])->name('contacts.show');
     Route::post('/contacts/read', [ContactMeController::class, 'markAllAsRead'])->name('contacts.read');
     Route::delete('/contacts/{id}', [ContactMeController::class, 'destroy'])->name('contacts.destroy');
+
+    // categories
+    Route::get('/categories', [CategoryController::class, 'categories'])->name('categories');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+    Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 });

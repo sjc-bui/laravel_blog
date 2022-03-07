@@ -32,7 +32,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = $this->postRepository->getAllPosts();
+        $posts = $this->postRepository->getPublishPosts();
         $categories = $this->categoryRepository->getAllCategories();
 
         return view('posts.posts', [
