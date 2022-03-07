@@ -115,6 +115,24 @@ class HomeController extends Controller
      */
     public function update(Request $request)
     {
-        return back();
+        $validated = $request->validate([
+            'title' => 'required|min:3|max:255',
+            'category_id' => 'required|integer',
+            'published' => 'boolean',
+            'content' => 'required|min:3|max:255'
+        ]);
+
+        $postId = $request->route('id');
+        $post = array(
+            'title' => $request->title,
+            'slug' => isset($request->slug) ? $request->slug : Str::slug($request->title),
+            'category_id' => $request->category_id,
+            'published' => $request->has('published') ? 1 : 0,
+            'content' => $request->content
+        );
+
+        $updatedPost = $this->postRepository->updatePost($postId, $post);
+
+        return redirect(route('admin.posts.show', $postId));
     }
 }

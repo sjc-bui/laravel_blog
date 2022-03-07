@@ -30,8 +30,9 @@
                         @endif
 
                         {{-- Add post form --}}
-                        {{-- <form action="{{ route('admin.posts.update') }}" method="post">
+                        <form action="{{ route('admin.posts.update', $post->id) }}" method="post">
                             @csrf
+                            @method('PUT')
 
                             <div class="form-group">
                                 <label for="title">Title</label>
@@ -48,26 +49,28 @@
                                 <select name="category_id" id="category_id" class="form-control">
                                     <option value="">Select post category</option>
                                     @foreach ($categories as $category)
-                                        <option @if (old('category_id') == $category->id)
+                                        <option @if (isset($post->category) && $post->category->id == $category->id)
                                             selected
                                         @endif value="{{ $category->id }}">{{ $category->title }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-check">
-                                <input type="checkbox" name="published" id="published" class="form-check-input" value="1">
+                                <input type="checkbox" name="published" id="published" @if ($post->published == 1)
+                                    checked
+                                @endif class="form-check-input" value="1">
                                 <label class="form-check-label" for="published">Publish</label>
                             </div>
                             <br>
                             <div class="form-group">
                                 <label for="content">Post content</label>
                                 <textarea name="content" id="summernote" rows="10" class="form-control"
-                                    placeholder="Enter post content...">{{ old('content') }}</textarea>
+                                    placeholder="Enter post content...">{{ $post->content }}</textarea>
                             </div>
                             <div class="form-group text-right">
                                 <button type="submit" class="btn btn-md btn-primary">Submit</button>
                             </div>
-                        </form> --}}
+                        </form>
                     </div>
                 </div>
             </div>

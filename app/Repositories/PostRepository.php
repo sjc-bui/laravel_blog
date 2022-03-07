@@ -32,4 +32,9 @@ class PostRepository implements PostRepositoryInterface
     {
         Post::destroy($postId);
     }
+
+    public function updatePost($postId, array $post)
+    {
+        return Post::whereId($postId)->update($post);
+    }
 }
