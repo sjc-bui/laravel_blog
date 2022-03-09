@@ -23,8 +23,19 @@ Route::get('/', function () {
     return redirect(route('posts'));
 });
 
+// Language
+Route::get('/language/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+    return redirect()->back();
+});
+
 // Posts
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
+Route::get('/posts/{slug}.{id}', [PostController::class, 'show'])->name('posts.show');
+
+// Search
+Route::get('/posts/search', [PostController::class, 'search'])->name('posts.search');
 
 // Contact me
 Route::get('/contact', [ContactMeController::class, 'index'])->name('contact');
@@ -35,7 +46,7 @@ Route::get('/aboutme', [AboutMeController::class, 'index'])->name('aboutme');
 
 // ----------------------------- Admin page -----------------------------
 Auth::routes();
-Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function () {
     // posts
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/home/posts/{id}', [HomeController::class, 'show'])->name('posts.show');

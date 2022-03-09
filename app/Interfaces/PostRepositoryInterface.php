@@ -10,4 +10,5 @@ interface PostRepositoryInterface
     public function createPost(array $post);
     public function deletePost($postId);
     public function updatePost($postId, array $post);
+    public function searchPosts($keyword);
 }

@@ -55,7 +55,7 @@
                                     placeholder="Enter message...">{{ old('intro') }}</textarea>
                             </div>
                             <div class="form-group text-right">
-                                <button type="submit" class="btn btn-md btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-md btn-primary">{{ __('submit') }}</button>
                             </div>
                         </form>
 
@@ -88,7 +88,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm"
-                                                    onclick="return confirm('Are you sure, you want to delete?')">Delete</button>
+                                                    onclick="return confirm('Are you sure, you want to delete?')">{{ __('delete') }}</button>
                                             </form>
                                         </td>
                                     </tr>
