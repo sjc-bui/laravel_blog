@@ -43,3 +43,14 @@ footer {
 .category-link {
     color: #6c757d !important;
 }
+
+.d-flex {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    padding: 24px 0px;
+}
+
+.ta-center {
+    text-align: center !important;
+}

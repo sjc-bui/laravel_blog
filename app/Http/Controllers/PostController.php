@@ -30,7 +30,7 @@ class PostController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
         $posts = $this->postRepository->getPublishPosts();
         $categories = $this->categoryRepository->getAllCategories();
@@ -38,6 +38,37 @@ class PostController extends Controller
         return view('posts.posts', [
             'posts' => $posts,
             'categories' => $categories
+        ]);
+    }
+
+    /**
+     * Show detail of single post.
+     * 
+     */
+    public function show(Request $request)
+    {
+        $slug = $request->route('slug');
+        $categories = $this->categoryRepository->getAllCategories();
+
+        return view('posts.show', [
+            'categories' => $categories
+        ]);
+    }
+
+    /**
+     * Search post by title.
+     * 
+     */
+    public function search(Request $request)
+    {
+        $q = $request->input('q');
+        $posts = $this->postRepository->searchPosts($q);
+        $categories = $this->categoryRepository->getAllCategories();
+
+        return view('posts.posts', [
+            'posts' => $posts,
+            'categories' => $categories,
+            'q' => $q
         ]);
     }
 }

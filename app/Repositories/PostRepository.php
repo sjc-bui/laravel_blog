@@ -37,4 +37,9 @@ class PostRepository implements PostRepositoryInterface
     {
         return Post::whereId($postId)->update($post);
     }
+
+    public function searchPosts($keyword)
+    {
+        return Post::where('published', 1)->where('title', 'like', '%' . $keyword . '%')->get();
+    }
 }

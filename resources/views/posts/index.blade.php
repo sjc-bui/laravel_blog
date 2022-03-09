@@ -2,6 +2,10 @@
 
 @section('title', 'Home')
 
+@section('searchForm')
+    @include('shared.searchForm')
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-8">
