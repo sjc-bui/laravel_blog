@@ -23,6 +23,13 @@ Route::get('/', function () {
     return redirect(route('posts'));
 });
 
+// Language
+Route::get('/language/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+    return redirect()->back();
+});
+
 // Posts
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
 Route::get('/posts/{slug}.{id}', [PostController::class, 'show'])->name('posts.show');

@@ -54,3 +54,12 @@ footer {
 .ta-center {
     text-align: center !important;
 }
+
+.set-lang {
+    margin: 0px 10px;
+}
+
+.locale-name {
+    font-size: 14px;
+    padding: 0px 4px;
+}
