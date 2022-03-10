@@ -21,7 +21,7 @@
                 </li>
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.home') }}">dashboard</a>
+                        <a class="nav-link" href="{{ route('admin.posts.index') }}">dashboard</a>
                     </li>
                 @endauth
                 {{-- <li class="nav-item dropdown">

@@ -13,7 +13,7 @@
 
                     <div class="card-body">
                         <div>
-                            <a href="{{ route('admin.home') }}">{{ __('back') }}</a>
+                            <a href="{{ route('admin.posts.index') }}">{{ __('back') }}</a>
                         </div>
                         <hr>
 
@@ -36,29 +36,28 @@
 
                             <div class="form-group">
                                 <label for="title">Title</label>
-                                <input type="text" name="title" id="title" placeholder="Enter post title" class="form-control"
-                                    value="{{ $post->title }}">
+                                <input type="text" name="title" id="title" placeholder="Enter post title"
+                                    class="form-control" value="{{ $post->title }}">
                             </div>
                             <div class="form-group">
                                 <label for="slug">Slug (doesn't need when the title is in English)</label>
-                                <input type="text" name="slug" id="slug" placeholder="Enter post slug" class="form-control"
-                                    value="{{ $post->slug }}">
+                                <input type="text" name="slug" id="slug" placeholder="Enter post slug"
+                                    class="form-control" value="{{ $post->slug }}">
                             </div>
                             <div class="form-group">
-                                <label for="category_id">Category - <a href="{{ route('admin.categories') }}">Add</a></label>
+                                <label for="category_id">Category - <a
+                                        href="{{ route('admin.categories.index') }}">Add</a></label>
                                 <select name="category_id" id="category_id" class="form-control">
                                     <option value="">Select post category</option>
                                     @foreach ($categories as $category)
-                                        <option @if (isset($post->category) && $post->category->id == $category->id)
-                                            selected
-                                        @endif value="{{ $category->id }}">{{ $category->title }}</option>
+                                        <option @if (isset($post->category) && $post->category->id == $category->id) selected @endif
+                                            value="{{ $category->id }}">{{ $category->title }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-check">
-                                <input type="checkbox" name="published" id="published" @if ($post->published == 1)
-                                    checked
-                                @endif class="form-check-input" value="1">
+                                <input type="checkbox" name="published" id="published"
+                                    @if ($post->published == 1) checked @endif class="form-check-input" value="1">
                                 <label class="form-check-label" for="published">Publish</label>
                             </div>
                             <br>

@@ -13,7 +13,7 @@
 
                     <div class="card-body">
                         <div>
-                            <a href="{{ route('admin.home') }}">{{ __('back') }}</a>
+                            <a href="{{ route('admin.posts.index') }}">{{ __('back') }}</a>
                         </div>
                         <hr>
 
@@ -44,7 +44,7 @@
                                     value="{{ old('slug') }}">
                             </div>
                             <div class="form-group">
-                                <label for="category_id">Category - <a href="{{ route('admin.categories') }}">{{ __('add') }}</a></label>
+                                <label for="category_id">Category - <a href="{{ route('admin.categories.index') }}">{{ __('add') }}</a></label>
                                 <select name="category_id" id="category_id" class="form-control">
                                     <option value="">Select post category</option>
                                     @foreach ($categories as $category)

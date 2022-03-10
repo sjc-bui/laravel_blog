@@ -40,7 +40,7 @@
                     @auth
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item {{ request()->is('admin/home*') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('admin.home') }}">posts</a>
+                                <a class="nav-link" href="{{ route('admin.posts.index') }}">posts</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">comments</a>
@@ -49,10 +49,10 @@
                                 <a class="nav-link" href="#">tags</a>
                             </li>
                             <li class="nav-item {{ request()->is('admin/categories*') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('admin.categories') }}">categories</a>
+                                <a class="nav-link" href="{{ route('admin.categories.index') }}">categories</a>
                             </li>
                             <li class="nav-item {{ request()->is('admin/contacts*') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('admin.contacts') }}">contacts</a>
+                                <a class="nav-link" href="{{ route('admin.contacts.index') }}">contacts</a>
                             </li>
                             <li class="nav-item {{ request()->is('admin/abouts*') ? 'active' : '' }}">
                                 <a class="nav-link" href="{{ route('admin.abouts') }}">abouts</a>

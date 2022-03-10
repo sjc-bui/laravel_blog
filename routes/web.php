@@ -47,8 +47,9 @@ Route::get('/aboutme', [AboutMeController::class, 'index'])->name('aboutme');
 // ----------------------------- Admin page -----------------------------
 Auth::routes();
 Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function () {
+
     // posts
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('posts.index');
     Route::get('/home/posts/{id}', [HomeController::class, 'show'])->name('posts.show');
     Route::get('/home/posts/{id}/edit', [HomeController::class, 'edit'])->name('posts.edit');
     Route::get('/home/posts', [HomeController::class, 'create'])->name('posts.create');
@@ -62,13 +63,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], fu
     Route::delete('/abouts/{id}', [AboutMeController::class, 'destroy'])->name('abouts.destroy');
 
     // contacts
-    Route::get('/contacts', [ContactMeController::class, 'contacts'])->name('contacts');
-    Route::get('/contacts/{id}', [ContactMeController::class, 'show'])->name('contacts.show');
-    Route::post('/contacts/read', [ContactMeController::class, 'markAllAsRead'])->name('contacts.read');
-    Route::delete('/contacts/{id}', [ContactMeController::class, 'destroy'])->name('contacts.destroy');
+    Route::group(['prefix' => 'contacts', 'as' => 'contacts.'], function () {
+        Route::get('/', [ContactMeController::class, 'contacts'])->name('index');
+        Route::get('/{id}', [ContactMeController::class, 'show'])->name('show');
+        Route::post('/read', [ContactMeController::class, 'markAllAsRead'])->name('read');
+        Route::delete('/{id}', [ContactMeController::class, 'destroy'])->name('destroy');
+    });
 
     // categories
-    Route::get('/categories', [CategoryController::class, 'categories'])->name('categories');
-    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
-    Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+    Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
+        Route::get('/', [CategoryController::class, 'categories'])->name('index');
+        Route::post('/', [CategoryController::class, 'store'])->name('store');
+        Route::delete('/{id}', [CategoryController::class, 'destroy'])->name('destroy');
+    });
 });

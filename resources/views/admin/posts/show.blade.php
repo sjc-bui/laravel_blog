@@ -9,7 +9,7 @@
 
                     <div class="card-body">
                         <div>
-                            <a href="{{ route('admin.home') }}">{{ __('back') }}</a>
+                            <a href="{{ route('admin.posts.index') }}">{{ __('back') }}</a>
                             &#32;&#124;&#32;
                             <a href="{{ route('admin.posts.create') }}">{{ __('create') }}</a>
                             &#32;&#124;&#32;
