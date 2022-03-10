@@ -13,15 +13,14 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <span>Unread messages: {{ $count }} </span>
+                                            <span>{{ __('un_read_message') }}: {{ $count }} </span>
                                         </td>
                                         <td>&#124;</td>
                                         <td>
                                             <span>
                                                 <form action="{{ route('admin.contacts.read') }}" method="post">
                                                     @csrf
-                                                    <button type="submit" class="btn btn-primary btn-sm">mark all as
-                                                        read</button>
+                                                    <button type="submit" class="btn btn-primary btn-sm">{{ __('mark_as_read') }}</button>
                                                 </form>
                                             </span>
                                         </td>
@@ -35,10 +34,10 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">name</th>
-                                        <th scope="col">subject</th>
-                                        <th scope="col">content</th>
-                                        <th scope="col">at</th>
+                                        <th scope="col">{{ __('name') }}</th>
+                                        <th scope="col">{{ __('subject') }}</th>
+                                        <th scope="col">{{ __('content') }}</th>
+                                        <th scope="col">{{ __('created_at') }}</th>
                                         <th scope="col">##</th>
                                     </tr>
                                 </thead>
@@ -56,7 +55,7 @@
                                                 <form action="{{ route('admin.contacts.destroy', $contact->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure, you want to delete?')">Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure, you want to delete?')">{{ __('delete') }}</button>
                                                 </form>
                                             </td>
                                         </tr>

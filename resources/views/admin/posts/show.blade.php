@@ -9,15 +9,15 @@
 
                     <div class="card-body">
                         <div>
-                            <a href="{{ route('admin.home') }}">Back</a>
+                            <a href="{{ route('admin.home') }}">{{ __('back') }}</a>
                             &#32;&#124;&#32;
-                            <a href="{{ route('admin.posts.create') }}">Create new</a>
+                            <a href="{{ route('admin.posts.create') }}">{{ __('create') }}</a>
                             &#32;&#124;&#32;
-                            <a href="{{ route('admin.posts.edit', $post->id) }}">Edit</a>
+                            <a href="{{ route('admin.posts.edit', $post->id) }}">{{ __('edit') }}</a>
                         </div>
                         <hr>
                         @if ($post->published == 0)
-                            <small style="color: red;">Draft</small>
+                            <small style="color: red;">{{ __('draft') }}</small>
                         @endif
                         <div class="sub-title">{{ $post->title }}</div>
                         <table>
@@ -51,7 +51,7 @@
                                             <form action="{{ route('admin.posts.destroy', $post->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure, you want to delete?')">Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure, you want to delete?')">{{ __('delete') }}</button>
                                             </form>
                                         </td>
                                     </tr>

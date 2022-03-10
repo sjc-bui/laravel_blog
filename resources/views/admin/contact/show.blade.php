@@ -9,7 +9,7 @@
 
                     <div class="card-body">
                         <div>
-                            <a href="{{ route('admin.contacts') }}">Back</a>
+                            <a href="{{ route('admin.contacts') }}">{{ __('back') }}</a>
                         </div>
                         <hr>
                         <div class="sub-title">{{ $contact->subject }}</div>

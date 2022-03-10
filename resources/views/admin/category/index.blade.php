@@ -31,12 +31,12 @@
                             @csrf
 
                             <div class="form-group">
-                                <label for="title">Title</label>
+                                <label for="title">{{ __('title') }}</label>
                                 <input type="text" name="title" id="title" class="form-control" placeholder="Category title..." value="{{ old('title') }}">
                             </div>
 
                             <div class="form-group text-right">
-                                <button type="submit" class="btn btn-md btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-md btn-primary">{{ __('submit') }}</button>
                             </div>
                         </form>
 
@@ -47,9 +47,9 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">title</th>
-                                    <th scope="col">slug</th>
-                                    <th scope="col">created at</th>
+                                    <th scope="col">{{ __('title') }}</th>
+                                    <th scope="col">{{ __('slug') }}</th>
+                                    <th scope="col">{{ __('created_at') }}</th>
                                     <th scope="col">##</th>
                                 </tr>
                             </thead>
@@ -66,7 +66,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm"
-                                                    onclick="return confirm('Are you sure, you want to delete?')">Delete</button>
+                                                    onclick="return confirm('Are you sure, you want to delete?')">{{ __('delete') }}</button>
                                             </form>
                                         </td>
                                     </tr>

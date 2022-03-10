@@ -35,22 +35,22 @@
                             @csrf
 
                             <div class="form-group">
-                                <label for="name">Name</label>
+                                <label for="name">{{ __('name') }}</label>
                                 <input type="text" name="name" id="name" placeholder="Enter name" class="form-control"
                                     value="{{ old('name') }}">
                             </div>
                             <div class="form-group">
-                                <label for="sns">SNS</label>
+                                <label for="sns">{{ __('sns') }}</label>
                                 <input type="text" name="sns" id="sns" placeholder="Enter sns" class="form-control"
                                     value="{{ old('sns') }}">
                             </div>
                             <div class="form-group">
-                                <label for="link">SNS Link</label>
+                                <label for="link">{{ __('sns_link') }}</label>
                                 <input type="text" name="link" id="link" placeholder="Enter sns link" class="form-control"
                                     value="{{ old('link') }}">
                             </div>
                             <div class="form-group">
-                                <label for="intro">Intro</label>
+                                <label for="intro">{{ __('intro') }}</label>
                                 <textarea name="intro" id="summernote" rows="10" class="form-control"
                                     placeholder="Enter message...">{{ old('intro') }}</textarea>
                             </div>
@@ -66,11 +66,11 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">name</th>
-                                    <th scope="col">sns</th>
-                                    <th scope="col">link</th>
-                                    <th scope="col">intro</th>
-                                    <th scope="col">created at</th>
+                                    <th scope="col">{{ __('name') }}</th>
+                                    <th scope="col">{{ __('sns') }}</th>
+                                    <th scope="col">{{ __('sns_link') }}</th>
+                                    <th scope="col">{{ __('intro') }}</th>
+                                    <th scope="col">{{ __('created_at') }}</th>
                                     <th scope="col">##</th>
                                 </tr>
                             </thead>

@@ -13,7 +13,7 @@
 
                     <div class="card-body">
                         <div>
-                            <a href="{{ route('admin.home') }}">Back</a>
+                            <a href="{{ route('admin.home') }}">{{ __('back') }}</a>
                         </div>
                         <hr>
 

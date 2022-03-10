@@ -15,7 +15,7 @@
                         @endif
 
                         <div>
-                            <a href="{{ route('admin.posts.create') }}" class="btn btn-primary btn-md">Create post</a>
+                            <a href="{{ route('admin.posts.create') }}" class="btn btn-primary btn-md">{{ __('create') }}</a>
                         </div>
 
                         {{-- Post list --}}
@@ -31,7 +31,7 @@
                                         {{-- Split post content. --}}
                                         {{-- <p class="mb-1">{{ Str::limit($post->content, 50, $end = '...') }}</p> --}}
                                         @if ($post->published == 0)
-                                            <small style="color: red;">Draft</small>
+                                            <small style="color: red;">{{ __('draft') }}</small>
                                         @endif
                                     </a>
                                 @endforeach
