@@ -67,7 +67,7 @@ class HomeController extends Controller
             'title' => 'required|min:3|max:255',
             'category_id' => 'required|integer',
             'published' => 'boolean',
-            'content' => 'required|min:3|max:255'
+            'content' => 'required|min:3'
         ]);
 
         $post = array(
@@ -119,7 +119,7 @@ class HomeController extends Controller
             'title' => 'required|min:3|max:255',
             'category_id' => 'required|integer',
             'published' => 'boolean',
-            'content' => 'required|min:3|max:255'
+            'content' => 'required|min:3'
         ]);
 
         $postId = $request->route('id');
