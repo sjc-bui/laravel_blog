@@ -91,7 +91,7 @@ class HomeController extends Controller
     {
         $postId = $request->route('id');
         $this->postRepository->deletePost($postId);
-        return redirect(route('admin.home'));
+        return redirect(route('admin.posts.index'));
     }
 
     /**
