@@ -42,4 +42,9 @@ class PostRepository implements PostRepositoryInterface
     {
         return Post::where('published', 1)->where('title', 'like', '%' . $keyword . '%')->get();
     }
+
+    public function getPost($slug, $id)
+    {
+        return Post::where('slug', '=', $slug)->orWhere('id', '=', $id)->first();
+    }
 }
