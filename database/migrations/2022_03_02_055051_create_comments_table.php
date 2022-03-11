@@ -16,8 +16,7 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('post_id');
-            $table->unsignedInteger('user_id')->nullable();
-            $table->string('username')->nullable();
+            $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->text('content');
             $table->timestamps();

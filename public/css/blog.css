@@ -48,7 +48,7 @@ footer {
     display: flex !important;
     flex-direction: column;
     width: 100%;
-    padding: 24px 0px;
+    padding: 6px 0px;
 }
 
 .ta-center {
@@ -69,4 +69,18 @@ footer {
     border-top: 1px solid #d9d9d9;
     margin-top: 1rem;
     padding-right: 1rem;
+}
+
+.comment-section {
+    width: 100%;
+    padding: 2rem;
+}
+
+.dot {
+    height: 5px;
+    width: 5px;
+    margin-top: 3px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
 }

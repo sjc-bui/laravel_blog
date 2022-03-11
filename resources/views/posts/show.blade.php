@@ -1,5 +1,11 @@
 @extends('posts.index')
 
+@section('title', $post->title)
+
+@section('summernotecss')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+@endsection
+
 @section('home-content')
     <div class="row mb-2">
         <table>
@@ -36,8 +42,68 @@
                 </tr>
             </tbody>
         </table>
+
         <div class="post-content">
             <p>{!! $post->content !!}</p>
+            <hr>
+        </div>
+
+        {{-- Comment section --}}
+        <h3>Comments @if (count($post->comments) > 0)
+            &#40;{{count($post->comments)}}&#41;
+        @endif</h3>
+        <div class="comment-section">
+            {{-- <hr> --}}
+            <form action="" method="post">
+                @csrf
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" placeholder="" class="form-control"
+                        value="{{ old('name') }}">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="" class="form-control"
+                        value="{{ old('email') }}">
+                </div>
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea name="content" id="summernote" rows="5" class="form-control"
+                        placeholder="">{{ old('content') }}</textarea>
+                </div>
+                <div class="form-group text-right">
+                    <button type="submit" class="btn btn-md btn-primary">{{ __('submit') }}</button>
+                </div>
+            </form>
+            <hr>
+            <div class="p-2">
+                <div class="mt-2">
+                    <div class="d-flex flex-row align-items-center">
+                        <h5 class="mr-2">John Ive</h5><span class="dot mb-1"></span><span class="mb-1 ml-2">1 hours ago</span>
+                    </div>
+                    <div class="content-text-sm">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius obcaecati inventore placeat, eligendi perferendis dolor sapiente. Necessitatibus aperiam similique voluptatum dolore, dignissimos tenetur, enim a voluptas est sed commodi sit!</p>
+                    </div>
+                    <hr>
+                </div>
+            </div>
         </div>
     </div>
+@endsection
+
+@section('summernotejs')
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                tabsize: 2,
+                height: 120,
+                toolbar: [
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['para', ['ul', 'ol']]
+                ]
+            });
+        });
+    </script>
 @endsection
