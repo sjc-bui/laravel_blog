@@ -13,7 +13,13 @@ class Comment extends Model
 
     protected $fillable = ['name', 'email', 'content'];
 
-    public function post() {
+    public function post()
+    {
         return $this->belongsTo(Post::class, 'post_id');
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class, 'comment_id');
     }
 }

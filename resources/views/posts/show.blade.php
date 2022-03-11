@@ -54,58 +54,12 @@
             @endif
         </h3>
         <div class="comment-section">
-            {{-- Error messages --}}
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <strong>Opps!</strong>
-                    <button type="button" class="close" data-dismiss="alert">&#215;</button>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+            {{-- Comment form --}}
+            @include('shared.addComment')
 
-            <form action="{{ route('comments.store', $post->id) }}" method="post">
-                @csrf
-
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name" placeholder="" class="form-control"
-                        value="{{ old('name') }}">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="" class="form-control"
-                        value="{{ old('email') }}">
-                </div>
-                <div class="form-group">
-                    <label for="content">Content</label>
-                    <textarea name="content" id="summernote" rows="5" class="form-control"
-                        placeholder="">{{ old('content') }}</textarea>
-                </div>
-                <div class="form-group text-right">
-                    <button type="submit" class="btn btn-md btn-primary">{{ __('submit') }}</button>
-                </div>
-            </form>
             <hr>
-            <div class="p-2">
-                @forelse ($post->comments as $comment)
-                    <div class="mt-2">
-                        <div class="d-flex flex-row align-items-center">
-                            <h5 class="mr-2">{{ $comment->name }}</h5><span class="dot mb-1"></span><span
-                                class="mb-1 ml-2">{{ $comment->created_at->diffForHumans() }}</span>
-                        </div>
-                        <div class="content-text-sm">
-                            <p>{!! $comment->content !!}</p>
-                        </div>
-                    </div>
-                    {!! $loop->last ? '' : '<hr>' !!}
-                @empty
-                    <p class="card-text">No comments yet!</p>
-                @endforelse
-            </div>
+            {{-- Comment list --}}
+            @include('shared.comments')
         </div>
     </div>
 @endsection
