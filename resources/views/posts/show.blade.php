@@ -46,6 +46,15 @@
         <div class="post-content">
             <p>{!! $post->content !!}</p>
             <hr>
+            <div class="post-navigation">
+                <div class="row">
+                    <div class="col-sm-6"><a href=""><span class="meta-nav">Prev</span><span
+                                class="nav-post-title">Build Laravel app for beginner.</span></a></div>
+                    <div class="col-sm-6"><a href=""><span class="meta-nav">Next</span><span
+                                class="nav-post-title">Learn PHP in one hour.</span></a></div>
+                </div>
+            </div>
+            <hr>
         </div>
 
         {{-- Comment section --}}
