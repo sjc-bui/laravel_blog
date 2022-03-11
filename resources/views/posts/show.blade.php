@@ -50,11 +50,24 @@
 
         {{-- Comment section --}}
         <h3>Comments @if (count($post->comments) > 0)
-            &#40;{{count($post->comments)}}&#41;
-        @endif</h3>
+                &#40;{{ count($post->comments) }}&#41;
+            @endif
+        </h3>
         <div class="comment-section">
-            {{-- <hr> --}}
-            <form action="" method="post">
+            {{-- Error messages --}}
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <strong>Opps!</strong>
+                    <button type="button" class="close" data-dismiss="alert">&#215;</button>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <form action="{{ route('comments.store', $post->id) }}" method="post">
                 @csrf
 
                 <div class="form-group">
@@ -78,15 +91,20 @@
             </form>
             <hr>
             <div class="p-2">
-                <div class="mt-2">
-                    <div class="d-flex flex-row align-items-center">
-                        <h5 class="mr-2">John Ive</h5><span class="dot mb-1"></span><span class="mb-1 ml-2">1 hours ago</span>
+                @forelse ($post->comments as $comment)
+                    <div class="mt-2">
+                        <div class="d-flex flex-row align-items-center">
+                            <h5 class="mr-2">{{ $comment->name }}</h5><span class="dot mb-1"></span><span
+                                class="mb-1 ml-2">{{ $comment->created_at->diffForHumans() }}</span>
+                        </div>
+                        <div class="content-text-sm">
+                            <p>{!! $comment->content !!}</p>
+                        </div>
                     </div>
-                    <div class="content-text-sm">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius obcaecati inventore placeat, eligendi perferendis dolor sapiente. Necessitatibus aperiam similique voluptatum dolore, dignissimos tenetur, enim a voluptas est sed commodi sit!</p>
-                    </div>
-                    <hr>
-                </div>
+                    {!! $loop->last ? '' : '<hr>' !!}
+                @empty
+                    <p class="card-text">No comments yet!</p>
+                @endforelse
             </div>
         </div>
     </div>
