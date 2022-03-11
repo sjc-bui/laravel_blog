@@ -65,7 +65,6 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
                                     <th scope="col">{{ __('name') }}</th>
                                     <th scope="col">{{ __('sns') }}</th>
                                     <th scope="col">{{ __('sns_link') }}</th>
@@ -77,8 +76,7 @@
                             <tbody>
                                 @foreach ($abouts as $about)
                                     <tr>
-                                        <td scope="row">{{ $about->id }}</td>
-                                        <td>{{ $about->name }}</td>
+                                        <td scope="row">{{ $about->name }}</td>
                                         <td>{{ $about->sns }}</td>
                                         <td>{{ $about->link }}</td>
                                         <td>{!! $about->intro !!}</td>

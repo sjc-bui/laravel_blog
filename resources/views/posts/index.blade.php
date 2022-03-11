@@ -30,8 +30,8 @@
             <br>
 
             <!-- Tags -->
-            @include('shared.tags')
-            <br>
+            {{-- @include('shared.tags')
+            <br> --}}
 
             <!-- Recent Comments -->
             @include('shared.recentComment')
