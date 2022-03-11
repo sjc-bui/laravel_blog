@@ -7,11 +7,13 @@ use App\Models\AboutMe;
 
 class AboutMeRepository implements AboutMeRepositoryInterface
 {
-    public function getLastAboutInfo() {
+    public function getLastAboutInfo()
+    {
         return AboutMe::orderBy('created_at', 'desc')->first();
     }
 
-    public function getAbouts() {
+    public function getAbouts()
+    {
         return AboutMe::orderBy('created_at', 'desc')->take(5)->get();
     }
 
@@ -20,7 +22,8 @@ class AboutMeRepository implements AboutMeRepositoryInterface
         return AboutMe::create($about);
     }
 
-    public function deleteAbout($aboutId) {
+    public function deleteAbout($aboutId)
+    {
         AboutMe::destroy($aboutId);
     }
 }

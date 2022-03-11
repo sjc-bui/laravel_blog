@@ -67,12 +67,12 @@ class HomeController extends Controller
             'title' => 'required|min:3|max:255',
             'category_id' => 'required|integer',
             'published' => 'boolean',
-            'content' => 'required|min:3|max:255'
+            'content' => 'required|min:3'
         ]);
 
         $post = array(
             'title' => $request->title,
-            'slug' => isset($request->slug) ? $request->slug : Str::slug($request->title),
+            'slug' => isset($request->slug) ? Str::slug($request->slug) : Str::slug($request->title),
             'category_id' => $request->category_id,
             'user_id' => auth()->id(),
             'published' => $request->has('published') ? 1 : 0,
@@ -91,7 +91,7 @@ class HomeController extends Controller
     {
         $postId = $request->route('id');
         $this->postRepository->deletePost($postId);
-        return redirect(route('admin.home'));
+        return redirect(route('admin.posts.index'));
     }
 
     /**
@@ -119,13 +119,13 @@ class HomeController extends Controller
             'title' => 'required|min:3|max:255',
             'category_id' => 'required|integer',
             'published' => 'boolean',
-            'content' => 'required|min:3|max:255'
+            'content' => 'required|min:3'
         ]);
 
         $postId = $request->route('id');
         $post = array(
             'title' => $request->title,
-            'slug' => isset($request->slug) ? $request->slug : Str::slug($request->title),
+            'slug' => isset($request->slug) ? Str::slug($request->slug) : Str::slug($request->title),
             'category_id' => $request->category_id,
             'published' => $request->has('published') ? 1 : 0,
             'content' => $request->content

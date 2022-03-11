@@ -20,7 +20,8 @@
                                             <span>
                                                 <form action="{{ route('admin.contacts.read') }}" method="post">
                                                     @csrf
-                                                    <button type="submit" class="btn btn-primary btn-sm">{{ __('mark_as_read') }}</button>
+                                                    <button type="submit"
+                                                        class="btn btn-primary btn-sm">{{ __('mark_as_read') }}</button>
                                                 </form>
                                             </span>
                                         </td>
@@ -33,10 +34,8 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
                                         <th scope="col">{{ __('name') }}</th>
                                         <th scope="col">{{ __('subject') }}</th>
-                                        <th scope="col">{{ __('content') }}</th>
                                         <th scope="col">{{ __('created_at') }}</th>
                                         <th scope="col">##</th>
                                     </tr>
@@ -44,18 +43,19 @@
                                 <tbody>
                                     @foreach ($contacts as $contact)
                                         <tr class="{{ $contact->is_readed == 0 ? 'un-read' : '' }}">
-                                            <td scope="row">{{ $contact->id }}</td>
-                                            <td>{{ $contact->name }}</td>
-                                            <td><a
+                                            <td scope="row">{{ $contact->name }}</td>
+                                            <td>
+                                                <a
                                                     href="{{ route('admin.contacts.show', $contact->id) }}">{{ $contact->subject }}</a>
                                             </td>
-                                            <td>{!! $contact->content !!}</td>
                                             <td>{{ $contact->created_at->format('Y/m/d H:i') }}</td>
                                             <td>
-                                                <form action="{{ route('admin.contacts.destroy', $contact->id) }}" method="post">
+                                                <form action="{{ route('admin.contacts.destroy', $contact->id) }}"
+                                                    method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure, you want to delete?')">{{ __('delete') }}</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"
+                                                        onclick="return confirm('Are you sure, you want to delete?')">{{ __('delete') }}</button>
                                                 </form>
                                             </td>
                                         </tr>

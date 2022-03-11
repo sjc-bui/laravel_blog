@@ -32,7 +32,8 @@
 
                             <div class="form-group">
                                 <label for="title">{{ __('title') }}</label>
-                                <input type="text" name="title" id="title" class="form-control" placeholder="Category title..." value="{{ old('title') }}">
+                                <input type="text" name="title" id="title" class="form-control"
+                                    placeholder="Category title..." value="{{ old('title') }}">
                             </div>
 
                             <div class="form-group text-right">
@@ -46,9 +47,7 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
                                     <th scope="col">{{ __('title') }}</th>
-                                    <th scope="col">{{ __('slug') }}</th>
                                     <th scope="col">{{ __('created_at') }}</th>
                                     <th scope="col">##</th>
                                 </tr>
@@ -56,9 +55,7 @@
                             <tbody>
                                 @foreach ($categories as $category)
                                     <tr>
-                                        <td scope="row">{{ $category->id }}</td>
-                                        <td>{{ $category->title }}</td>
-                                        <td>{{ $category->slug }}</td>
+                                        <td scope="row">{{ $category->title }}</td>
                                         <td>{{ $category->created_at->format('Y/m/d H:i') }}</td>
                                         <td>
                                             <form action="{{ route('admin.categories.destroy', $category->id) }}"

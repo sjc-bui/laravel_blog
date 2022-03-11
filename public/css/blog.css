@@ -24,12 +24,12 @@ footer {
     margin-top: 5px;
 }
 
-.card-title {
-    margin-bottom: 0.3rem !important;
+.social-buttons a:hover {
+    text-decoration: underline;
 }
 
-.card-body {
-    padding-bottom: 0 !important;
+.card-title {
+    margin-bottom: 0.3rem !important;
 }
 
 .card-footer {
@@ -48,7 +48,7 @@ footer {
     display: flex !important;
     flex-direction: column;
     width: 100%;
-    padding: 24px 0px;
+    padding: 6px 0px;
 }
 
 .ta-center {
@@ -62,4 +62,57 @@ footer {
 .locale-name {
     font-size: 14px;
     padding: 0px 4px;
+}
+
+.post-content {
+    width: 100%;
+    border-top: 1px solid #d9d9d9;
+    margin-top: 1rem;
+    padding-right: 1rem;
+}
+
+.comment-section {
+    width: 100%;
+    padding: 2rem;
+}
+
+.dot {
+    height: 5px;
+    width: 5px;
+    margin-top: 3px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.meta-nav {
+    color: #f9ae39;
+    display: block;
+    font-size: 1.1875rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0 0 0.625rem;
+    text-transform: uppercase;
+}
+
+.post-navigation a {
+    display: block;
+    color: #3d3d3d;
+    position: relative;
+    padding: 0;
+}
+
+.post-navigation a:hover {
+    color: #f9ae39;
+    text-decoration: none;
+}
+
+.nav-post-title {
+    font-family: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+a, a:visited {
+    text-decoration: none;
 }

@@ -70,14 +70,14 @@ class ContactMeController extends Controller
     public function show(Request $request)
     {
         $contactId = $request->route('id');
-        $this->contactRepository->markAsRead($contactId); // ??
-        $contact = $this->contactRepository->getContactById($contactId); // ??
+        $this->contactRepository->markAsRead($contactId);
+        $contact = $this->contactRepository->getContactById($contactId);
         return view('admin.contact.show', compact('contact'));
     }
 
     /**
      * Update unread message to read.
-     * 
+     *
      */
     public function markAllAsRead()
     {
@@ -87,7 +87,7 @@ class ContactMeController extends Controller
 
     /**
      * Delete contact by id.
-     * 
+     *
      */
     public function destroy(Request $request)
     {

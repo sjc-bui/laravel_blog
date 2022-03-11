@@ -19,8 +19,7 @@ class PostController extends Controller
     public function __construct(
         PostRepositoryInterface $postRepository,
         CategoryRepositoryInterface $categoryRepository
-    )
-    {
+    ) {
         $this->postRepository = $postRepository;
         $this->categoryRepository = $categoryRepository;
     }
@@ -43,21 +42,26 @@ class PostController extends Controller
 
     /**
      * Show detail of single post.
-     * 
+     *
      */
     public function show(Request $request)
     {
         $slug = $request->route('slug');
+        $id = $request->route('id');
+
         $categories = $this->categoryRepository->getAllCategories();
 
+        $post = $this->postRepository->getPost($slug, $id);
+
         return view('posts.show', [
+            'post' => $post,
             'categories' => $categories
         ]);
     }
 
     /**
      * Search post by title.
-     * 
+     *
      */
     public function search(Request $request)
     {

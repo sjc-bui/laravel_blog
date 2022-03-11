@@ -7,6 +7,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ContactMeController;
 use App\Http\Controllers\AboutMeController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ReplyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +45,16 @@ Route::post('/contact', [ContactMeController::class, 'store'])->name('store.cont
 
 // About me
 Route::get('/aboutme', [AboutMeController::class, 'index'])->name('aboutme');
+
+// Comment
+Route::group(['prefix' => 'comments', 'as' => 'comments.'], function () {
+    Route::post('/{post}', [CommentController::class, 'store'])->name('store');
+});
+
+// Reply
+Route::group(['prefix' => 'replies', 'as' => 'replies.'], function () {
+    Route::post('/{comment}', [ReplyController::class, 'store'])->name('store');
+});
 
 // ----------------------------- Admin page -----------------------------
 Auth::routes();

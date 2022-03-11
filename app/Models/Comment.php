@@ -9,7 +9,17 @@ class Comment extends Model
 {
     use HasFactory;
 
-    public function post() {
+    protected $table = 'comments';
+
+    protected $fillable = ['name', 'email', 'content'];
+
+    public function post()
+    {
         return $this->belongsTo(Post::class, 'post_id');
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class, 'comment_id');
     }
 }

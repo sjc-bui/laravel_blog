@@ -7,15 +7,14 @@ use App\Models\Post;
 
 class PostRepository implements PostRepositoryInterface
 {
-
     public function getPublishPosts()
     {
-        return Post::where('published', 1)->get();
+        return Post::where('published', 1)->orderBy('created_at', 'desc')->get();
     }
 
     public function getAllPosts()
     {
-        return Post::all();
+        return Post::orderBy('created_at', 'desc')->get();
     }
 
     public function getPostById($id)
@@ -40,6 +39,11 @@ class PostRepository implements PostRepositoryInterface
 
     public function searchPosts($keyword)
     {
-        return Post::where('published', 1)->where('title', 'like', '%' . $keyword . '%')->get();
+        return Post::where('published', 1)->orderBy('created_at', 'desc')->where('title', 'like', '%' . $keyword . '%')->get();
+    }
+
+    public function getPost($slug, $id)
+    {
+        return Post::where('slug', '=', $slug)->orWhere('id', '=', $id)->first();
     }
 }

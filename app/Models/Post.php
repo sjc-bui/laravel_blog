@@ -13,19 +13,23 @@ class Post extends Model
 
     protected $fillable = ['user_id', 'category_id', 'title', 'slug', 'content', 'published'];
 
-    public function owner() {
+    public function owner()
+    {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function comments() {
+    public function comments()
+    {
         return $this->hasMany(Comment::class, 'post_id');
     }
 
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(Category::class, 'category_id');
     }
 
-    public function path() {
+    public function path()
+    {
         return "admin/home/posts/{$this->id}";
     }
 }
