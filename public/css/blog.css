@@ -6,6 +6,12 @@ footer {
     margin: 10px 0;
 }
 
+.navbar-brand {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #f9ae39 !important;
+}
+
 #comments,
 #comments li {
     margin: 0;
@@ -30,6 +36,15 @@ footer {
 
 .card-title {
     margin-bottom: 0.3rem !important;
+}
+
+.card-title a {
+    color: #020202;
+}
+
+.card-title a:hover {
+    color: #f9ae39;
+    text-decoration: none;
 }
 
 .card-footer {
@@ -71,6 +86,19 @@ footer {
     padding-right: 1rem;
 }
 
+.post-content a {
+    background-color: #faedda;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    color: #1a1a1a;
+}
+
+.post-content a:hover {
+    background-color: #ffdeac;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.616);
+    text-decoration: none;
+    color: #1a1a1a !important;
+}
+
 .comment-section {
     width: 100%;
     padding: 2rem;
@@ -95,6 +123,11 @@ footer {
     text-transform: uppercase;
 }
 
+.post-navigation {
+    width: 100%;
+    padding: 1.2rem 0;
+}
+
 .post-navigation a {
     display: block;
     color: #3d3d3d;
@@ -114,5 +147,21 @@ footer {
 }
 
 a, a:visited {
+    color: #020202;
     text-decoration: none;
+}
+
+.right-side-link a {
+    color: #0074cc;
+    text-decoration: none;
+}
+
+.my-btn {
+    background-color: #f9ae39 !important;
+    border-color: #f9ae39 !important;
+}
+
+.my-btn:hover {
+    background-color: #ff9d00 !important;
+    border-color: #ff9d00 !important;
 }

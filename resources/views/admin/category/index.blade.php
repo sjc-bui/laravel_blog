@@ -32,8 +32,7 @@
 
                             <div class="form-group">
                                 <label for="title">{{ __('title') }}</label>
-                                <input type="text" name="title" id="title" class="form-control"
-                                    placeholder="Category title..." value="{{ old('title') }}">
+                                <input type="text" name="title" id="title" class="form-control" value="{{ old('title') }}">
                             </div>
 
                             <div class="form-group text-right">

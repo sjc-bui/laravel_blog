@@ -36,13 +36,12 @@
 
                             <div class="form-group">
                                 <label for="title">Title</label>
-                                <input type="text" name="title" id="title" placeholder="Enter post title"
-                                    class="form-control" value="{{ $post->title }}">
+                                <input type="text" name="title" id="title" class="form-control"
+                                    value="{{ $post->title }}">
                             </div>
                             <div class="form-group">
                                 <label for="slug">Slug (doesn't need when the title is in English)</label>
-                                <input type="text" name="slug" id="slug" placeholder="Enter post slug"
-                                    class="form-control" value="{{ $post->slug }}">
+                                <input type="text" name="slug" id="slug" class="form-control" value="{{ $post->slug }}">
                             </div>
                             <div class="form-group">
                                 <label for="category_id">Category - <a
@@ -63,8 +62,8 @@
                             <br>
                             <div class="form-group">
                                 <label for="content">Post content</label>
-                                <textarea name="content" id="summernote" rows="10" class="form-control"
-                                    placeholder="Enter post content...">{{ $post->content }}</textarea>
+                                <textarea name="content" id="summernote" rows="10"
+                                    class="form-control">{{ $post->content }}</textarea>
                             </div>
                             <div class="form-group text-right">
                                 <button type="submit" class="btn btn-md btn-primary">Submit</button>

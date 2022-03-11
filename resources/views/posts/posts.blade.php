@@ -44,12 +44,18 @@
             @endforeach
         @else
             <div class="d-flex">
-                <div class="ta-center">
-                    We couldn't find anything for <b>{{ $q }}</b>
-                </div>
-                <div class="ta-center">
-                    Try different or less specific keywords.
-                </div>
+                @if (request()->is('posts/search*'))
+                    <div class="ta-center">
+                        We couldn't find anything for <b>{{ $q }}</b>
+                    </div>
+                    <div class="ta-center">
+                        Try different or less specific keywords.
+                    </div>
+                @else
+                    <div class="ta-center">
+                        <span>No post yet!</span>
+                    </div>
+                @endif
             </div>
         @endif
     </div>

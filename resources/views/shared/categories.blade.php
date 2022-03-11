@@ -4,7 +4,7 @@
     </div>
     <ul class="list-group list-group-flush">
         @foreach ($categories as $category)
-            <li class="list-group-item"><a href="{{ $category->slug }}">{{ $category->title }}</a></li>
+            <li class="list-group-item right-side-link"><a href="{{ $category->slug }}">{{ $category->title }}</a></li>
         @endforeach
     </ul>
 </div>

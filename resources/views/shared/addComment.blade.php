@@ -16,18 +16,17 @@
 
     <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" name="name" id="name" placeholder="" class="form-control" value="{{ old('name') }}">
+        <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}">
     </div>
     <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="" class="form-control" value="{{ old('email') }}">
+        <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}">
     </div>
     <div class="form-group">
         <label for="content">Content</label>
-        <textarea name="content" id="summernote" rows="5" class="form-control"
-            placeholder="">{{ old('content') }}</textarea>
+        <textarea name="content" id="summernote" rows="5" class="form-control">{{ old('content') }}</textarea>
     </div>
     <div class="form-group text-right">
-        <button type="submit" class="btn btn-md btn-primary">{{ __('submit') }}</button>
+        <button type="submit" class="btn btn-md btn-primary my-btn">{{ __('submit') }}</button>
     </div>
 </form>

@@ -36,23 +36,22 @@
 
                             <div class="form-group">
                                 <label for="name">{{ __('name') }}</label>
-                                <input type="text" name="name" id="name" placeholder="Enter name" class="form-control"
+                                <input type="text" name="name" id="name" class="form-control"
                                     value="{{ old('name') }}">
                             </div>
                             <div class="form-group">
                                 <label for="sns">{{ __('sns') }}</label>
-                                <input type="text" name="sns" id="sns" placeholder="Enter sns" class="form-control"
+                                <input type="text" name="sns" id="sns" class="form-control"
                                     value="{{ old('sns') }}">
                             </div>
                             <div class="form-group">
                                 <label for="link">{{ __('sns_link') }}</label>
-                                <input type="text" name="link" id="link" placeholder="Enter sns link" class="form-control"
+                                <input type="text" name="link" id="link" class="form-control"
                                     value="{{ old('link') }}">
                             </div>
                             <div class="form-group">
                                 <label for="intro">{{ __('intro') }}</label>
-                                <textarea name="intro" id="summernote" rows="10" class="form-control"
-                                    placeholder="Enter message...">{{ old('intro') }}</textarea>
+                                <textarea name="intro" id="summernote" rows="10" class="form-control">{{ old('intro') }}</textarea>
                             </div>
                             <div class="form-group text-right">
                                 <button type="submit" class="btn btn-md btn-primary">{{ __('submit') }}</button>
