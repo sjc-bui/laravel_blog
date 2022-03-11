@@ -28,8 +28,6 @@
                                             <h5 class="mb-1">{{ $post->title }}</h5>
                                             <small class="text-muted">{{ $post->created_at->format('Y/m/d H:i') }}</small>
                                         </div>
-                                        {{-- Split post content. --}}
-                                        {{-- <p class="mb-1">{{ Str::limit($post->content, 50, $end = '...') }}</p> --}}
                                         @if ($post->published == 0)
                                             <small style="color: red;">{{ __('draft') }}</small>
                                         @endif
