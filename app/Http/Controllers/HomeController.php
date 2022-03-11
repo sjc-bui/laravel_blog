@@ -72,7 +72,7 @@ class HomeController extends Controller
 
         $post = array(
             'title' => $request->title,
-            'slug' => isset($request->slug) ? $request->slug : Str::slug($request->title),
+            'slug' => isset($request->slug) ? Str::slug($request->slug) : Str::slug($request->title),
             'category_id' => $request->category_id,
             'user_id' => auth()->id(),
             'published' => $request->has('published') ? 1 : 0,
@@ -125,7 +125,7 @@ class HomeController extends Controller
         $postId = $request->route('id');
         $post = array(
             'title' => $request->title,
-            'slug' => isset($request->slug) ? $request->slug : Str::slug($request->title),
+            'slug' => isset($request->slug) ? Str::slug($request->slug) : Str::slug($request->title),
             'category_id' => $request->category_id,
             'published' => $request->has('published') ? 1 : 0,
             'content' => $request->content
