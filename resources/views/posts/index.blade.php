@@ -20,12 +20,6 @@
 
         {{-- Right side --}}
         <div class="col-md-4">
-            <!-- <div class="well text-center">
-                <p class="lead">
-                    Don't want to miss updates? Please click the below button!
-                </p>
-                <button class="btn btn-primary btn-lg">Subscribe to my feed</button>
-            </div> -->
 
             <!-- Latest Posts -->
             @include('shared.latestPosts')

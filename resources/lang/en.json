@@ -20,6 +20,12 @@
     "create": "Create",
     "edit": "Edit",
     "add": "Add",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "": "",
+    "": "",
+    "": "",
     "": "",
     "": ""
 }
