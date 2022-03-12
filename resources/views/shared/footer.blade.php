@@ -1,6 +1,3 @@
-<footer>
-    <div class="container">
-        <hr />
-        <p class="text-center">Copyright &copy; Blog 2022. All rights reserved.</p>
-    </div>
-</footer>
+<div class="footer">
+    <div class="text-muted copyright">Copyright &copy; {{ config('app.name') }} 2022. All rights reserved.</div>
+</div>

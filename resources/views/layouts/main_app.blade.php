@@ -25,7 +25,7 @@
     @include('shared.header')
 
     <!-- Body -->
-    <div class="container" style="padding-top: 2.5rem;">
+    <div class="container" style="padding: 2.5rem 0 3.8rem 0;">
         @yield('content')
     </div>
 
