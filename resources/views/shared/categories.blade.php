@@ -3,8 +3,11 @@
         <h5>Categories</h5>
     </div>
     <ul class="list-group list-group-flush">
-        @foreach ($categories as $category)
-            <li class="list-group-item right-side-link"><a href="{{ $category->slug }}">{{ $category->title }}</a></li>
-        @endforeach
+        @forelse ($categories as $category)
+            <li class="list-group-item right-side-link"><a href="{{ $category->slug }}">{{ $category->title }}</a>
+            </li>
+        @empty
+            <li class="list-group-item right-side-link"><span>No categories yet.</span></li>
+        @endforelse
     </ul>
 </div>

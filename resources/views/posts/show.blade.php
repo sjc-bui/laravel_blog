@@ -44,7 +44,7 @@
         </table>
 
         <div class="post-content">
-            <p>{!! $post->content !!}</p>
+            {!! $post->content !!}
             <hr>
         </div>
         <div class="post-navigation">
@@ -57,19 +57,26 @@
         </div>
 
         {{-- Comment section --}}
+        <hr>
         <h3>Comments @if (count($post->comments) > 0)
                 &#40;{{ count($post->comments) }}&#41;
             @endif
         </h3>
         <div class="comment-section">
-            {{-- Comment form --}}
-            @include('shared.addComment')
+            @guest
+                {{-- Comment form --}}
+                @include('shared.addComment')
+            @endguest
 
-            <hr>
             {{-- Comment list --}}
             @include('shared.comments')
         </div>
     </div>
+@endsection
+
+@section('relatedPosts')
+    @include('shared.relatedPosts')
+    <br>
 @endsection
 
 @section('summernotejs')

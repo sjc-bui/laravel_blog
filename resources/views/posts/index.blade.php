@@ -21,9 +21,8 @@
         {{-- Right side --}}
         <div class="col-md-4">
 
-            <!-- Latest Posts -->
-            @include('shared.latestPosts')
-            <br>
+            <!-- Related Posts -->
+            @yield('relatedPosts')
 
             <!-- Categories -->
             @include('shared.categories')

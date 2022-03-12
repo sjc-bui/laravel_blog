@@ -14,7 +14,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title"><a
-                                    href="{{ route('posts.show', [$post->slug, $post->id]) }}">{{ $post->title }}</a>
+                                    href="{{ route('posts.show', [$post->slug, $post->id]) }}">{{ Str::limit($post->title, 50, $end = '...') }}</a>
                             </h4>
                             @if (isset($post->category))
                                 <small class="text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"

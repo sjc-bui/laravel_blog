@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Interfaces\PostRepositoryInterface;
 use App\Interfaces\CategoryRepositoryInterface;
+use App\Interfaces\CommentRepositoryInterface;
 
 class PostController extends Controller
 {
     private PostRepositoryInterface $postRepository;
     private CategoryRepositoryInterface $categoryRepository;
+    private CommentRepositoryInterface $commentRepository;
 
     /**
      * Create a new controller instance.
@@ -18,10 +20,12 @@ class PostController extends Controller
      */
     public function __construct(
         PostRepositoryInterface $postRepository,
-        CategoryRepositoryInterface $categoryRepository
+        CategoryRepositoryInterface $categoryRepository,
+        CommentRepositoryInterface $commentRepository
     ) {
         $this->postRepository = $postRepository;
         $this->categoryRepository = $categoryRepository;
+        $this->commentRepository = $commentRepository;
     }
 
     /**
@@ -33,10 +37,12 @@ class PostController extends Controller
     {
         $posts = $this->postRepository->getPublishPosts();
         $categories = $this->categoryRepository->getAllCategories();
+        $recentComments = $this->commentRepository->getRecentComments();
 
         return view('posts.posts', [
             'posts' => $posts,
-            'categories' => $categories
+            'categories' => $categories,
+            'recentComments' => $recentComments
         ]);
     }
 
@@ -49,13 +55,16 @@ class PostController extends Controller
         $slug = $request->route('slug');
         $id = $request->route('id');
 
-        $categories = $this->categoryRepository->getAllCategories();
-
         $post = $this->postRepository->getPost($slug, $id);
+        $categories = $this->categoryRepository->getAllCategories();
+        $recentComments = $this->commentRepository->getRecentComments();
+        $relatedPosts = $this->postRepository->getRelatedPosts($post);
 
         return view('posts.show', [
             'post' => $post,
-            'categories' => $categories
+            'categories' => $categories,
+            'recentComments' => $recentComments,
+            'relatedPosts' => $relatedPosts
         ]);
     }
 
@@ -68,11 +77,13 @@ class PostController extends Controller
         $q = $request->input('q');
         $posts = $this->postRepository->searchPosts($q);
         $categories = $this->categoryRepository->getAllCategories();
+        $recentComments = $this->commentRepository->getRecentComments();
 
         return view('posts.posts', [
             'posts' => $posts,
             'categories' => $categories,
-            'q' => $q
+            'q' => $q,
+            'recentComments' => $recentComments
         ]);
     }
 }

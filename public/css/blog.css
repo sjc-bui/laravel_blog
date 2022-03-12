@@ -83,12 +83,12 @@ footer {
     width: 100%;
     border-top: 1px solid #d9d9d9;
     margin-top: 1rem;
-    padding-right: 1rem;
+    padding: 0.5rem 1rem 0.25rem 0;
 }
 
 .post-content a {
     background-color: #faedda;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     color: #1a1a1a;
 }
 
@@ -101,7 +101,7 @@ footer {
 
 .comment-section {
     width: 100%;
-    padding: 2rem;
+    padding: 1.2rem;
 }
 
 .dot {
@@ -126,6 +126,8 @@ footer {
 .post-navigation {
     width: 100%;
     padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
 }
 
 .post-navigation a {
@@ -146,7 +148,8 @@ footer {
     padding: 0;
 }
 
-a, a:visited {
+a,
+a:visited {
     color: #020202;
     text-decoration: none;
 }
@@ -164,4 +167,12 @@ a, a:visited {
 .my-btn:hover {
     background-color: #ff9d00 !important;
     border-color: #ff9d00 !important;
+}
+
+.thread-admin {
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #f5a623;
+    margin: 0 2px;
 }

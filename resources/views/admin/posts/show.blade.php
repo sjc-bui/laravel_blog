@@ -42,7 +42,7 @@
                                     <tr>
                                         <td>
                                             <div class="contact-content">
-                                                <p>{!! $post->content !!}</p>
+                                                {!! $post->content !!}
                                             </div>
                                         </td>
                                     </tr>

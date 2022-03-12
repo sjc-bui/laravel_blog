@@ -2,11 +2,11 @@
     @forelse ($post->comments as $comment)
         <div class="mt-2">
             <div class="d-flex flex-row align-items-center">
-                <h5 class="mr-2">{{ $comment->name }}</h5><span class="dot mb-1"></span><span
-                    class="mb-1 ml-2">{{ $comment->created_at->diffForHumans() }}</span>
+                <b><span>{{ $comment->name }}</span></b>&nbsp;
+                <span class="text-muted float">{{ $comment->created_at->diffForHumans() }}</span>
             </div>
             <div class="content-text-sm">
-                <p>{!! $comment->content !!}</p>
+                {!! $comment->content !!}
             </div>
 
             @auth

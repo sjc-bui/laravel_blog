@@ -11,4 +11,9 @@ class CommentRepository implements CommentRepositoryInterface
     {
         return Comment::create($comment);
     }
+
+    public function getRecentComments()
+    {
+        return Comment::inRandomOrder()->limit(5)->get();
+    }
 }

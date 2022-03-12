@@ -46,4 +46,14 @@ class PostRepository implements PostRepositoryInterface
     {
         return Post::where('slug', '=', $slug)->orWhere('id', '=', $id)->first();
     }
+
+    public function getRelatedPosts($post)
+    {
+        return Post::where('published', 1)
+            ->where('category_id', $post->category_id)
+            ->where('id', '!=', $post->id)
+            ->orderBy('created_at', 'desc')
+            ->take(5)
+            ->get();
+    }
 }
