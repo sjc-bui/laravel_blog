@@ -35,6 +35,7 @@ Route::get('/language/{locale}', function ($locale) {
 // Posts
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
 Route::get('/posts/{slug}.{id}', [PostController::class, 'show'])->name('posts.show');
+Route::get('/posts/category/{slug}', [PostController::class, 'getByCategory'])->name('posts.category');
 
 // Search
 Route::get('/posts/search', [PostController::class, 'search'])->name('posts.search');

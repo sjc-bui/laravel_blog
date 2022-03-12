@@ -91,4 +91,29 @@ class PostController extends Controller
             'recentComments' => $recentComments
         ]);
     }
+
+    /**
+     * Get related post by category.
+     * 
+     */
+    public function getByCategory(Request $request)
+    {
+        $catSlug = $request->route('slug');
+        $targetCategory = $this->categoryRepository->getCategoryBySlug($catSlug);
+
+        $categories     = $this->categoryRepository->getAllCategories();
+        $recentComments = $this->commentRepository->getRecentComments();
+        $posts = [];
+
+        if (!empty($targetCategory)) {
+            $posts = $this->postRepository->getPostsByCategory($targetCategory->id);
+        }
+
+        return view('posts.posts', [
+            'catType' => empty($targetCategory) ? $catSlug : $targetCategory->title,
+            'posts' => $posts,
+            'categories' => $categories,
+            'recentComments' => $recentComments
+        ]);
+    }
 }

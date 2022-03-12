@@ -4,7 +4,8 @@
     </div>
     <ul class="list-group list-group-flush">
         @forelse ($categories as $category)
-            <li class="list-group-item right-side-link"><a href="{{ $category->slug }}">{{ $category->title }}</a>
+            <li class="list-group-item right-side-link"><a
+                    href="{{ route('posts.category', $category->slug) }}">{{ $category->title }}</a>
             </li>
         @empty
             <li class="list-group-item right-side-link"><span>No categories yet.</span></li>

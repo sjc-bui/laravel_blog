@@ -15,4 +15,5 @@ interface PostRepositoryInterface
     public function getRelatedPosts($post);
     public function getNextPost($postId);
     public function getPrevPost($postId);
+    public function getPostsByCategory($categoryId);
 }

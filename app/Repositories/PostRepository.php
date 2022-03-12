@@ -66,4 +66,9 @@ class PostRepository implements PostRepositoryInterface
     {
         return Post::where('published', 1)->where('id', '<', $postId)->orderBy('created_at', 'desc')->first();
     }
+
+    public function getPostsByCategory($categoryId)
+    {
+        return Post::where('published', 1)->where('category_id', $categoryId)->orderBy('created_at', 'desc')->take(50)->get();
+    }
 }
