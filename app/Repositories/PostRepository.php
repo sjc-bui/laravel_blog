@@ -56,4 +56,14 @@ class PostRepository implements PostRepositoryInterface
             ->take(5)
             ->get();
     }
+
+    public function getNextPost($postId)
+    {
+        return Post::where('published', 1)->where('id', '>', $postId)->orderBy('created_at')->first();
+    }
+
+    public function getPrevPost($postId)
+    {
+        return Post::where('published', 1)->where('id', '<', $postId)->orderBy('created_at', 'desc')->first();
+    }
 }

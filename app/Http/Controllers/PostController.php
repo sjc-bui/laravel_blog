@@ -60,11 +60,16 @@ class PostController extends Controller
         $recentComments = $this->commentRepository->getRecentComments();
         $relatedPosts = $this->postRepository->getRelatedPosts($post);
 
+        $prev = $this->postRepository->getPrevPost($post->id);
+        $next = $this->postRepository->getNextPost($post->id);
+
         return view('posts.show', [
             'post' => $post,
             'categories' => $categories,
             'recentComments' => $recentComments,
-            'relatedPosts' => $relatedPosts
+            'relatedPosts' => $relatedPosts,
+            'prev' => $prev,
+            'next' => $next
         ]);
     }
 

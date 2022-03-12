@@ -49,10 +49,22 @@
         </div>
         <div class="post-navigation">
             <div class="row">
-                <div class="col-sm-6"><a href=""><span class="meta-nav">Prev</span><span
-                            class="nav-post-title">Build Laravel app for beginner.</span></a></div>
-                <div class="col-sm-6"><a href=""><span class="meta-nav">Next</span><span
-                            class="nav-post-title">Learn PHP in one hour.</span></a></div>
+                <div class="col-sm-6">
+                    @if (isset($prev))
+                        <a href="{{ route('posts.show', [$prev->slug, $prev->id]) }}">
+                            <span class="meta-nav">Prev</span>
+                            <span class="nav-post-title">{{ $prev->title }}</span>
+                        </a>
+                    @endif
+                </div>
+                <div class="col-sm-6">
+                    @if (isset($next))
+                        <a href="{{ route('posts.show', [$next->slug, $next->id]) }}">
+                            <span class="meta-nav">Next</span>
+                            <span class="nav-post-title">{{ $next->title }}</span>
+                        </a>
+                    @endif
+                </div>
             </div>
         </div>
 

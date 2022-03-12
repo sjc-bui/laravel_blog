@@ -176,3 +176,7 @@ a:visited {
     color: #f5a623;
     margin: 0 2px;
 }
+
+.intro-info {
+    padding: 0.8rem 0.2rem;
+}

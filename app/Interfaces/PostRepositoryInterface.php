@@ -13,4 +13,6 @@ interface PostRepositoryInterface
     public function searchPosts($keyword);
     public function getPost($slug, $id);
     public function getRelatedPosts($post);
+    public function getNextPost($postId);
+    public function getPrevPost($postId);
 }
