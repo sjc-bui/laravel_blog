@@ -34,6 +34,7 @@
 
             <!-- Recent Comments -->
             @include('shared.recentComment')
+            <br>
 
         </div>
     </div>

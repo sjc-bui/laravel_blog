@@ -194,3 +194,14 @@ body {
     position: absolute;
     transform: translate(-50%, -50%);
 }
+
+.form-error {
+    border: 1px solid #dc3545 !important;
+}
+
+.err-msg {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+}

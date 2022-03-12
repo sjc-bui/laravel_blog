@@ -16,4 +16,9 @@ class CommentRepository implements CommentRepositoryInterface
     {
         return Comment::inRandomOrder()->limit(5)->get();
     }
+
+    public function deleteCommentsByPostId($postId)
+    {
+        Comment::where('post_id', $postId)->delete();
+    }
 }

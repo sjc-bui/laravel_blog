@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Interfaces\PostRepositoryInterface;
 use App\Interfaces\CategoryRepositoryInterface;
+use App\Interfaces\CommentRepositoryInterface;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
     private PostRepositoryInterface $postRepository;
     private CategoryRepositoryInterface $categoryRepository;
+    private CommentRepositoryInterface $commentRepository;
 
     /**
      * Create a new controller instance.
@@ -19,10 +22,12 @@ class HomeController extends Controller
      */
     public function __construct(
         PostRepositoryInterface $postRepository,
-        CategoryRepositoryInterface $categoryRepository
+        CategoryRepositoryInterface $categoryRepository,
+        CommentRepositoryInterface $commentRepository
     ) {
         $this->postRepository = $postRepository;
         $this->categoryRepository = $categoryRepository;
+        $this->commentRepository = $commentRepository;
     }
 
     /**
@@ -90,7 +95,16 @@ class HomeController extends Controller
     public function destroy(Request $request)
     {
         $postId = $request->route('id');
-        $this->postRepository->deletePost($postId);
+
+        DB::beginTransaction();
+        try {
+            $this->postRepository->deletePost($postId);
+            $this->commentRepository->deleteCommentsByPostId($postId);
+            DB::commit();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+        }
+
         return redirect(route('admin.posts.index'));
     }
 

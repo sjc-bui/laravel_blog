@@ -6,4 +6,5 @@ interface CommentRepositoryInterface
 {
     public function storeComment(array $comment);
     public function getRecentComments();
+    public function deleteCommentsByPostId($postId);
 }
