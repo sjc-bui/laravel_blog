@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h5>Categories</h5>
+        <h5>{{ __('categories') }}</h5>
     </div>
     <ul class="list-group list-group-flush">
         @forelse ($categories as $category)

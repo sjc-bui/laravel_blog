@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h5>Related posts</h5>
+        <h5>{{ __('related_posts') }}</h5>
     </div>
     <ul class="list-group list-group-flush">
         @forelse ($relatedPosts as $post)

@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h5>Recent Comments</h5>
+        <h5>{{ __('recent_comment') }}</h5>
     </div>
     <ul class="list-group list-group-flush">
         @foreach ($recentComments as $comment)

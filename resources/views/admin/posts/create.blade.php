@@ -38,7 +38,7 @@
                             <div class="form-group">
                                 <label for="category_id">Category - <a href="{{ route('admin.categories.index') }}">{{ __('add') }}</a></label>
                                 <select name="category_id" id="category_id" class="form-control">
-                                    <option value="">Select post category</option>
+                                    <option value="">{{ __('select_category') }}</option>
                                     @foreach ($categories as $category)
                                         <option @if (old('category_id') == $category->id)
                                             selected

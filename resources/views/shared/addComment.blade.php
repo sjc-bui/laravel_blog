@@ -11,15 +11,15 @@
     @csrf
 
     <div class="form-group">
-        <label for="name">Name</label>
+        <label for="name">{{ __('name') }}</label>
         <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}">
     </div>
     <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email">{{ __('email') }}&nbsp;<span class="text-muted">{{ __('no_display') }}</span></label>
         <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}">
     </div>
     <div class="form-group">
-        <label for="content">Content</label>
+        <label for="content">{{ __('content') }}</label>
         <textarea name="content" id="simpleMDE" rows="5" class="form-control">{{ old('content') }}</textarea>
     </div>
     <div class="form-group text-right">

@@ -4,7 +4,7 @@
         <input type="text" name="content" autocomplete="off" id="content" required class="form-control"
             placeholder="Write your reply...">
         <div class="input-group-append">
-            <button type="submit" class="btn btn-primary my-btn">Reply</button>
+            <button type="submit" class="btn btn-primary my-btn">{{ __('reply') }}</button>
         </div>
     </div>
 </form>

@@ -14,15 +14,12 @@
                                 {{ session('success') }}
                             </div>
                         @endif
+
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <strong>Opps!</strong>
                                 <button type="button" class="close" data-dismiss="alert">&#215;</button>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
+                                <div>{{ __('something_wrong') }}</div>
                             </div>
                         @endif
 
@@ -32,28 +29,32 @@
 
                             <div class="form-group">
                                 <label for="name">{{ __('name') }}</label>
-                                <input type="text" name="name" id="name" class="form-control"
-                                    value="{{ old('name') }}">
+                                <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}">
                             </div>
                             <div class="form-group">
                                 <label for="sns">{{ __('sns') }}</label>
-                                <input type="text" name="sns" id="sns" class="form-control"
-                                    value="{{ old('sns') }}">
+                                <input type="text" name="sns" id="sns" class="form-control" value="{{ old('sns') }}">
                             </div>
                             <div class="form-group">
                                 <label for="link">{{ __('sns_link') }}</label>
-                                <input type="text" name="link" id="link" class="form-control"
-                                    value="{{ old('link') }}">
+                                <input type="text" name="link" id="link" class="form-control" value="{{ old('link') }}">
                             </div>
                             <div class="form-group">
                                 <label for="intro">{{ __('intro') }}</label>
-                                <textarea name="intro" id="summernote" rows="10" class="form-control">{{ old('intro') }}</textarea>
+                                <textarea name="intro" id="aboutMeMDE" rows="10" class="form-control">{{ old('intro') }}</textarea>
                             </div>
                             <div class="form-group text-right">
                                 <button type="submit" class="btn btn-md btn-primary">{{ __('submit') }}</button>
                             </div>
                         </form>
 
+                        @include('shared.simpleMde')
+
+                        <script>
+                            var bodyEditor = new SimpleMDE({
+                                element: document.getElementById("aboutMeMDE")
+                            });
+                        </script>
                         <hr>
 
                         {{-- About list info --}}

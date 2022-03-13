@@ -10,18 +10,18 @@
             {{-- Nav links --}}
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item {{ request()->is('posts*') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('posts') }}">home<span
+                    <a class="nav-link" href="{{ route('posts') }}">{{ __('home') }}<span
                             class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('contact') }}">contact</a>
+                    <a class="nav-link" href="{{ route('contact') }}">{{ __('contact') }}</a>
                 </li>
                 <li class="nav-item {{ request()->is('aboutme') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('aboutme') }}">about</a>
+                    <a class="nav-link" href="{{ route('aboutme') }}">{{ __('about') }}</a>
                 </li>
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.posts.index') }}">dashboard</a>
+                        <a class="nav-link" href="{{ route('admin.posts.index') }}">{{ __('dashboard') }}</a>
                     </li>
                 @endauth
             </ul>

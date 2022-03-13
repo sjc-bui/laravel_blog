@@ -205,3 +205,16 @@ body {
     font-size: 80%;
     color: #dc3545;
 }
+
+.center_div {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.well {
+    padding: 0 1rem;
+}
+
+.ad-img {
+    border-radius: 50% !important;
+}

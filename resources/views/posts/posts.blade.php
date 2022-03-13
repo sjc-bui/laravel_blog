@@ -6,8 +6,8 @@
     @else
         @if (isset($catType))
             <h1>{{ $catType }}</h1>
-        @else
-            <h1>Latest Posts</h1>
+        {{-- @else
+            <h1>Latest Posts</h1> --}}
         @endif
     @endif
 

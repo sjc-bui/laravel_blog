@@ -8,7 +8,21 @@
             <tbody>
                 <tr>
                     <td>
-                        <h4>{{ $post->title }}</h4>
+                        <div class="text-left pb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-chevron-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                            </svg>
+                            <small class="text-muted">
+                                <a href="{{ route('posts') }}" class="leading-5">{{ __('back_home') }}</a>
+                            </small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3>{{ $post->title }}</h3>
                     </td>
                 </tr>
                 <tr>
@@ -18,7 +32,8 @@
                                     fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
                                     <path
                                         d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
-                                </svg>&#32;<a class="category-link" href="{{ route('posts.category', $post->category->slug) }}">{{ $post->category->title }}</a></small>
+                                </svg>&#32;<a class="category-link"
+                                    href="{{ route('posts.category', $post->category->slug) }}">{{ $post->category->title }}</a></small>
                         @endif
                         &nbsp;
                         <small class="text-muted"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -40,35 +55,36 @@
         </table>
 
         <div class="post-content">
-            {!! $post->content !!}
+            {!! Str::markdown($post->content) !!}
             <hr>
         </div>
-        <div class="post-navigation">
-            <div class="row">
-                <div class="col-sm-6">
-                    @if (isset($prev))
-                        <a href="{{ route('posts.show', [$prev->slug, $prev->id]) }}">
-                            <span class="meta-nav">Prev</span>
-                            <span class="nav-post-title">{{ $prev->title }}</span>
-                        </a>
-                    @endif
-                </div>
-                <div class="col-sm-6">
-                    @if (isset($next))
-                        <a href="{{ route('posts.show', [$next->slug, $next->id]) }}">
-                            <span class="meta-nav">Next</span>
-                            <span class="nav-post-title">{{ $next->title }}</span>
-                        </a>
-                    @endif
+
+        @if (isset($prev) || isset($next))
+            <div class="post-navigation">
+                <div class="row">
+                    <div class="col-sm-6">
+                        @if (isset($prev))
+                            <a href="{{ route('posts.show', [$prev->slug, $prev->id]) }}">
+                                <span class="meta-nav">{{ __('prev') }}</span>
+                                <span class="nav-post-title">{{ $prev->title }}</span>
+                            </a>
+                        @endif
+                    </div>
+                    <div class="col-sm-6">
+                        @if (isset($next))
+                            <a href="{{ route('posts.show', [$next->slug, $next->id]) }}">
+                                <span class="meta-nav">{{ __('next') }}</span>
+                                <span class="nav-post-title">{{ $next->title }}</span>
+                            </a>
+                        @endif
+                    </div>
                 </div>
             </div>
-        </div>
+            <hr>
+        @endif
 
         {{-- Comment section --}}
-        <hr>
-        <h3>Comments @if (count($post->comments) > 0)
-                &#40;{{ count($post->comments) }}&#41;
-            @endif
+        <h3>{{ __('comments') }}&nbsp;{{ count($post->comments) > 0 ? __('cmt_num', ['num' => count($post->comments)]) : '' }}
         </h3>
         <div class="comment-section">
             @guest

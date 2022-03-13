@@ -19,6 +19,6 @@
         </div>
         {!! $loop->last ? '' : '<hr>' !!}
     @empty
-        <p class="card-text">No comments yet!</p>
+        <p class="text-muted">{{ __('no_comments') }}</p>
     @endforelse
 </div>

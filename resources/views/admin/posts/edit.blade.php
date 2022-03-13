@@ -58,13 +58,21 @@
                             <br>
                             <div class="form-group">
                                 <label for="content">Post content</label>
-                                <textarea name="content" id="summernote" rows="10"
+                                <textarea name="content" id="editPostMDE" rows="10"
                                     class="form-control">{{ $post->content }}</textarea>
                             </div>
                             <div class="form-group text-right">
                                 <button type="submit" class="btn btn-md btn-primary">Submit</button>
                             </div>
                         </form>
+
+                        @include('shared.simpleMde')
+
+                        <script>
+                            var bodyEditor = new SimpleMDE({
+                                element: document.getElementById("editPostMDE")
+                            });
+                        </script>
                     </div>
                 </div>
             </div>

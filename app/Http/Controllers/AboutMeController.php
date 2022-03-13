@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Interfaces\AboutMeRepositoryInterface;
 
 class AboutMeController extends Controller
@@ -56,7 +57,7 @@ class AboutMeController extends Controller
             'name' => $request->name,
             'sns' => $request->sns,
             'link' => $request->link,
-            'intro' => $request->intro,
+            'intro' => Str::markdown($request->intro),
         );
 
         $this->aboutmeRepository->createAbout($about);

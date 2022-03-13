@@ -42,7 +42,7 @@
                                     <tr>
                                         <td>
                                             <div class="contact-content">
-                                                {!! $post->content !!}
+                                                {!! Str::markdown($post->content) !!}
                                             </div>
                                         </td>
                                     </tr>
