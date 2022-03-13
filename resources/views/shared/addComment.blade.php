@@ -3,11 +3,7 @@
     <div class="alert alert-danger">
         <strong>Opps!</strong>
         <button type="button" class="close" data-dismiss="alert">&#215;</button>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+        <div>{{ __('something_wrong') }}</div>
     </div>
 @endif
 
@@ -24,9 +20,17 @@
     </div>
     <div class="form-group">
         <label for="content">Content</label>
-        <textarea name="content" id="summernote" rows="5" class="form-control">{{ old('content') }}</textarea>
+        <textarea name="content" id="simpleMDE" rows="5" class="form-control">{{ old('content') }}</textarea>
     </div>
     <div class="form-group text-right">
         <button type="submit" class="btn btn-md btn-primary my-btn">{{ __('submit') }}</button>
     </div>
 </form>
+
+@include('shared.simpleMde')
+
+<script>
+    var bodyEditor = new SimpleMDE({
+        element: document.getElementById("simpleMDE")
+    });
+</script>

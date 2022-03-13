@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Interfaces\CommentRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\Post;
 use App\Models\Comment;
 
@@ -26,13 +27,13 @@ class CommentController extends Controller
         $this->validate(request(), [
             'name' => 'required|min:3|max:50',
             'email' => 'required|email',
-            'content' => 'required|min:3',
+            'content' => 'required|min:1',
         ]);
 
         $post->comments()->create([
             'name' => request()->name,
             'email' => request()->email,
-            'content' => request()->content
+            'content' => Str::markdown(request()->content)
         ]);
 
         return redirect()->back();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Interfaces\ContactMeRepositoryInterface;
 
 class ContactMeController extends Controller
@@ -34,14 +35,14 @@ class ContactMeController extends Controller
             'name'    => 'required|string|max:30',
             'email'   => 'required|email',
             'subject' => 'required|min:3|max:255',
-            'message' => 'required|min:3',
+            'message' => 'required|min:1',
         ]);
 
         $contact = array(
             'name'    => $request->name,
             'email'   => $request->email,
             'subject' => $request->subject,
-            'content' => $request->message,
+            'content' => Str::markdown($request->message)
         );
 
         $this->contactRepository->createContact($contact);

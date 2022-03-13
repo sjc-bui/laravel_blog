@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('summernotecss')
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
-@endsection
-
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -21,11 +17,7 @@
                             <div class="alert alert-danger">
                                 <strong>Opps!</strong>
                                 <button type="button" class="close" data-dismiss="alert">&#215;</button>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
+                                <div>{{ __('something_wrong') }}</div>
                             </div>
                         @endif
 
@@ -61,33 +53,23 @@
                             <br>
                             <div class="form-group">
                                 <label for="content">Post content</label>
-                                <textarea name="content" id="summernote" rows="10" class="form-control">{{ old('content') }}</textarea>
+                                <textarea name="content" id="postMDE" rows="10" class="form-control">{{ old('content') }}</textarea>
                             </div>
                             <div class="form-group text-right">
                                 <button type="submit" class="btn btn-md btn-primary">{{ __('submit') }}</button>
                             </div>
                         </form>
+
+                        @include('shared.simpleMde')
+
+                        <script>
+                            var bodyEditor = new SimpleMDE({
+                                element: document.getElementById("postMDE")
+                            });
+                        </script>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-@endsection
-
-@section('summernotejs')
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#summernote').summernote({
-                tabsize: 2,
-                height: 220,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'underline', 'clear']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['insert', ['link']]
-                ]
-            });
-        });
-    </script>
 @endsection

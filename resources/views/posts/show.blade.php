@@ -2,10 +2,6 @@
 
 @section('title', $post->title)
 
-@section('summernotecss')
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
-@endsection
-
 @section('home-content')
     <div class="row mb-2">
         <table>
@@ -89,20 +85,4 @@
 @section('relatedPosts')
     @include('shared.relatedPosts')
     <br>
-@endsection
-
-@section('summernotejs')
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#summernote').summernote({
-                tabsize: 2,
-                height: 120,
-                toolbar: [
-                    ['font', ['bold', 'underline', 'clear']],
-                    ['para', ['ul', 'ol']]
-                ]
-            });
-        });
-    </script>
 @endsection

@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('summernotecss')
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
-@endsection
-
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -74,22 +70,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('summernotejs')
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#summernote').summernote({
-                tabsize: 2,
-                height: 220,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'underline', 'clear']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['insert', ['link']]
-                ]
-            });
-        });
-    </script>
 @endsection

@@ -81,7 +81,7 @@ class HomeController extends Controller
             'category_id' => $request->category_id,
             'user_id' => auth()->id(),
             'published' => $request->has('published') ? 1 : 0,
-            'content' => $request->content
+            'content' => Str::markdown($request->content)
         );
 
         $newPost = $this->postRepository->createPost($post);
