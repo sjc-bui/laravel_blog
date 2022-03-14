@@ -43,5 +43,9 @@
     "back_home": "Back to home",
     "cmt_num": "(:num)",
     "reply": "Reply",
+    "updating": "Updating...",
+    "search_result_not_found": "We couldn't find anything for [<b>:keyword</b>],",
+    "try_another_keyword": "Try different or less specific keywords.",
+    "search_result": "Search results",
     "": ""
 }

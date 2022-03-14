@@ -43,6 +43,9 @@
     "back_home": "ホームに戻る",
     "cmt_num": "(:num)",
     "reply": "返事",
-    "": "",
+    "updating": "更新中...",
+    "search_result_not_found": "申し訳ありませんが、[<b>:keyword</b>]に一致する記事は見つかりませんでした。",
+    "try_another_keyword": "再度お試し下さい。",
+    "search_result": "検索結果",
     "": ""
 }

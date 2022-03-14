@@ -23,6 +23,8 @@
             </div>
         </div>
     @else
-        <h5>Updating...</h5>
+        <div style="text-align: center;">
+            <span class="text-muted">{{ __('updating') }}</span>
+        </div>
     @endif
 @endsection

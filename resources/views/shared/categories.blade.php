@@ -8,7 +8,7 @@
                     href="{{ route('posts.category', $category->slug) }}">{{ $category->title }}</a>
             </li>
         @empty
-            <li class="list-group-item right-side-link"><span>No categories yet.</span></li>
+            <li class="list-group-item right-side-link"><span class="text-muted">No categories yet!</span></li>
         @endforelse
     </ul>
 </div>

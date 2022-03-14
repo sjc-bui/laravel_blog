@@ -2,12 +2,10 @@
 
 @section('home-content')
     @if (request()->is('posts/search*'))
-        <h1>Search Results</h1>
+        <h1>{{ __('search_result') }}</h1>
     @else
         @if (isset($catType))
             <h1>{{ $catType }}</h1>
-        {{-- @else
-            <h1>Latest Posts</h1> --}}
         @endif
     @endif
 
@@ -50,10 +48,10 @@
             <div class="d-flex">
                 @if (request()->is('posts/search*'))
                     <div class="ta-center">
-                        We couldn't find anything for <b>{{ $q }}</b>
+                        {!! __('search_result_not_found', ['keyword' => $q]) !!}
                     </div>
                     <div class="ta-center">
-                        Try different or less specific keywords.
+                        {{ __('try_another_keyword') }}
                     </div>
                 @else
                     <div class="ta-center">
