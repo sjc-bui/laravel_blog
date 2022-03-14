@@ -47,5 +47,6 @@
     "search_result_not_found": "申し訳ありませんが、[<b>:keyword</b>]に一致する記事は見つかりませんでした。",
     "try_another_keyword": "再度お試し下さい。",
     "search_result": "検索結果",
+    "keyword_missing": "キーワード指定なし。",
     "": ""
 }

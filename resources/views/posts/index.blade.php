@@ -1,6 +1,6 @@
 @extends('layouts.main_app')
 
-@section('title', 'Home')
+@section('title', __('home'))
 
 @section('searchForm')
     @include('shared.searchForm')
