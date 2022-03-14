@@ -48,5 +48,10 @@
     "try_another_keyword": "Try different or less specific keywords.",
     "search_result": "Search results",
     "keyword_missing": "Keyword is missing.",
+    "posts": "Posts",
+    "tags": "Tags",
+    "contacts": "Contacts",
+    "abouts": "Abouts",
+    "list": "List",
     "": ""
 }

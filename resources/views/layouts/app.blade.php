@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name') }}</title>
+    <title>{{ config('app.name') }} | @yield('title')</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -39,22 +39,22 @@
                     @auth
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item {{ request()->is('admin/home*') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('admin.posts.index') }}">posts</a>
+                                <a class="nav-link" href="{{ route('admin.posts.index') }}">{{ __('posts')}}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">comments</a>
+                                <a class="nav-link" href="#">{{ __('comments')}}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">tags</a>
+                                <a class="nav-link" href="#">{{ __('tags') }}</a>
                             </li>
                             <li class="nav-item {{ request()->is('admin/categories*') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('admin.categories.index') }}">categories</a>
+                                <a class="nav-link" href="{{ route('admin.categories.index') }}">{{ __('categories') }}</a>
                             </li>
                             <li class="nav-item {{ request()->is('admin/contacts*') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('admin.contacts.index') }}">contacts</a>
+                                <a class="nav-link" href="{{ route('admin.contacts.index') }}">{{ __('contacts') }}</a>
                             </li>
                             <li class="nav-item {{ request()->is('admin/abouts*') ? 'active' : '' }}">
-                                <a class="nav-link" href="{{ route('admin.abouts') }}">abouts</a>
+                                <a class="nav-link" href="{{ route('admin.abouts') }}">{{ __('abouts') }}</a>
                             </li>
                             <li class="nav-item">
                                 <span class="nav-link"> | </span>
